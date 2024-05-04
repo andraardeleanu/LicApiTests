@@ -24,3 +24,21 @@ Scenario: Successfully get stock by product id
 	When I make a GET request to /getStockByProductId with the productId=61 param
 	Then I confirm the response code from /getStockByProductId is 200 OK
 	And I can confirm searched product returns the expected stock /getStockByProductId
+
+@LoginAsAdmin @OrderProductsReset
+Scenario: Successfully update stock
+	When I make a GET request to /getStockByProductId with the productId=53 param
+	Then I confirm /getStockByProductId returns the correct stock data for productId - 53: Available stock = 500, Pending stock = 0
+	When I make a POST request to /updateStock using './Resources/Stock/UpdateStock.json' file
+	Then I confirm the response code from /updateStock is 200 OK
+	When I make a GET request to /getStockByProductId with the productId=53 param
+	Then I confirm /getStockByProductId returns the correct stock data for productId - 53: Available stock = 1000, Pending stock = 0
+
+@LoginAsCustomer
+Scenario: Only admin is authorized to update stock
+	When I make a GET request to /getStockByProductId with the productId=53 param
+	Then I confirm /getStockByProductId returns the correct stock data for productId - 53: Available stock = 500, Pending stock = 0
+	When I make a POST request to /updateStock using './Resources/Stock/UpdateStock.json' file
+	Then I confirm the response code from /updateStock is 403 Forbidden
+	When I make a GET request to /getStockByProductId with the productId=53 param
+	Then I confirm /getStockByProductId returns the correct stock data for productId - 53: Available stock = 500, Pending stock = 0

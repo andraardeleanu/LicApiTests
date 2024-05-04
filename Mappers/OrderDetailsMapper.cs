@@ -7,7 +7,5 @@
         public decimal Price { get; set; }
         public int Id { get; set; }
         public string Author { get; set; }
-        public DateTime DateCreated { get; set; }
-        public DateTime DateUpdated { get; set; }
     }
 }

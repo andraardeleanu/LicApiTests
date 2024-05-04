@@ -200,6 +200,96 @@ this.ScenarioInitialize(scenarioInfo);
             }
             this.ScenarioCleanup();
         }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Successfully update stock")]
+        [NUnit.Framework.CategoryAttribute("LoginAsAdmin")]
+        [NUnit.Framework.CategoryAttribute("OrderProductsReset")]
+        public void SuccessfullyUpdateStock()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "LoginAsAdmin",
+                    "OrderProductsReset"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully update stock", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 29
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 30
+ testRunner.When("I make a GET request to /getStockByProductId with the productId=53 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 31
+ testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 53:" +
+                        " Available stock = 500, Pending stock = 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 32
+ testRunner.When("I make a POST request to /updateStock using \'./Resources/Stock/UpdateStock.json\' " +
+                        "file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 33
+ testRunner.Then("I confirm the response code from /updateStock is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 34
+ testRunner.When("I make a GET request to /getStockByProductId with the productId=53 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 35
+ testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 53:" +
+                        " Available stock = 1000, Pending stock = 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Only admin is authorized to update stock")]
+        [NUnit.Framework.CategoryAttribute("LoginAsCustomer")]
+        public void OnlyAdminIsAuthorizedToUpdateStock()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "LoginAsCustomer"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Only admin is authorized to update stock", null, tagsOfScenario, argumentsOfScenario, featureTags);
+#line 38
+this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 39
+ testRunner.When("I make a GET request to /getStockByProductId with the productId=53 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 40
+ testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 53:" +
+                        " Available stock = 500, Pending stock = 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 41
+ testRunner.When("I make a POST request to /updateStock using \'./Resources/Stock/UpdateStock.json\' " +
+                        "file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 42
+ testRunner.Then("I confirm the response code from /updateStock is 403 Forbidden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 43
+ testRunner.When("I make a GET request to /getStockByProductId with the productId=53 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 44
+ testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 53:" +
+                        " Available stock = 500, Pending stock = 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
     }
 }
 #pragma warning restore

@@ -1,29 +1,11 @@
 [
   {
-    "quantity": 3,
+    "quantity": 150,
     "name": "Product Demo 1",
     "price": 99.99,
     "id": 0,
     "author": "Admin",
-    "dateCreated": "2024-05-04T15:27:53.4756645Z",
-    "dateUpdated": "2024-05-04T15:27:53.4756647Z"
-  },
-  {
-    "quantity": 2,
-    "name": "Product Demo 2",
-    "price": 50.99,
-    "id": 0,
-    "author": "Admin",
-    "dateCreated": "2024-05-04T15:27:53.4763605Z",
-    "dateUpdated": "2024-05-04T15:27:53.4763606Z"
-  },
-  {
-    "quantity": 10,
-    "name": "Product Demo 3",
-    "price": 100,
-    "id": 0,
-    "author": "Admin",
-    "dateCreated": "2024-05-04T15:27:53.4763618Z",
-    "dateUpdated": "2024-05-04T15:27:53.4763619Z"
+    "dateCreated": "2024-05-04T18:31:22.4367479Z",
+    "dateUpdated": "2024-05-04T18:31:22.4367482Z"
   }
 ]

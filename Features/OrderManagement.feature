@@ -14,13 +14,13 @@ Scenario: Successfully get all orders
 
 @LoginAsAdmin
 Scenario: Successfully get orders by id
-	When I make a GET request to /getOrders with the Id=189 param
+	When I make a GET request to /getOrders with the Id=184 param
 	Then I confirm the response code from /getOrders is 200 OK
 	And Order searched by id is displayed displayed in the result from /getOrders
 	
 @LoginAsAdmin
 Scenario: Successfully get orders by orderNo
-	When I make a GET request to /getOrders with the OrderNo=aeddd4f1-31d0-4e76-8aa3-337a4c2e4515 param
+	When I make a GET request to /getOrders with the OrderNo=2bf92285-b09b-4e04-a5b3-3dc5c27baadb param
 	Then I confirm the response code from /getOrders is 200 OK
 	And Order searched by id is displayed displayed in the result from /getOrders
 
@@ -38,7 +38,7 @@ Scenario: Successfully get orders by workpoint id and status
 
 @LoginAsAdmin
 Scenario: Successfully get orders by order id and status
-	When I make a GET request to /getOrders with the Id=189 & Status=Initializata param
+	When I make a GET request to /getOrders with the Id=184 & Status=Initializata param
 	Then I confirm the response code from /getOrders is 200 OK
 	And Order searched by id is displayed displayed in the result from /getOrders
 
@@ -134,6 +134,7 @@ Scenario: Only admin can update order status to Procesata
 
 @LoginAsAdmin
 Scenario: Successfully get order details
-	When I make a GET request to /getOrderDetails with the orderId=184 param
+	When I make a GET request to /getOrderDetails with the orderId=1191 param
 	Then I confirm the response code from /getOrderDetails is 200 OK
 	And I can confirm the searched order's details are displayed in the result from /getOrderDetails
+

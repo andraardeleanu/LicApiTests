@@ -130,8 +130,13 @@ namespace LicApiTests.Steps
                     break;
                 case "/addOrder":
                     var jsonBodyAddOrder = JsonConvert.DeserializeObject<AddOrderRequest>(jsonString);
-                    var responseAddOrder= await _client.PostAsJsonAsync(endpoint, jsonBodyAddOrder);
+                    var responseAddOrder = await _client.PostAsJsonAsync(endpoint, jsonBodyAddOrder);
                     _scenarioContext.Add(endpoint, responseAddOrder);
+                    break;
+                case "/updateStock":
+                    var jsonBodyUpdateStock = JsonConvert.DeserializeObject<UpdateStockRequest>(jsonString);
+                    var responseUpdateStock = await _client.PostAsJsonAsync(endpoint, jsonBodyUpdateStock);
+                    _scenarioContext.Add(endpoint, responseUpdateStock);
                     break;
             }
         }

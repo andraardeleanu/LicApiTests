@@ -100,6 +100,9 @@
     <None Update="Resources\Products\AddNewProductRequest.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Resources\Stock\UpdateStock.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Resources\Workpoints\UpdateWorkpointExistingData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
