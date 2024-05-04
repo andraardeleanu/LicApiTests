@@ -1,0 +1,9 @@
+﻿[
+  {
+    "id": 34,
+    "productId": 61,
+    "productName": "Stock Test Api",
+    "availableStock": 150,
+    "pendingStock": 0
+  }
+]

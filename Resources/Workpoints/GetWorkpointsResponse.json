@@ -1,0 +1,23 @@
+[
+  {
+    "id": 59,
+    "name": "Demo Workpoint",
+    "address": "Str. Avram Iancu 15, Cluj-Napoca",
+    "author": "custone",
+    "companyId": 1
+  },
+  {
+    "id": 60,
+    "name": "Workpoint W2",
+    "address": "Addres W2",
+    "author": "custtwo",
+    "companyId": 2
+  },
+  {
+    "id": 67,
+    "name": "Workpoint Order",
+    "address": "Str. Stradulescu, nr 1A, Bucuresti",
+    "author": "custone",
+    "companyId": 1
+  }
+]

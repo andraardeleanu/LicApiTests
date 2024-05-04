@@ -1,0 +1,37 @@
+﻿[
+  {
+    "id": 53,
+    "name": "Product Demo 1",
+    "price": 99.99
+  },
+  {
+    "id": 54,
+    "name": "Product Demo 2",
+    "price": 50.99
+  },
+  {
+    "id": 55,
+    "name": "Product Demo 3",
+    "price": 100
+  },
+  {
+    "id": 58,
+    "name": "Lowest Price",
+    "price": 1
+  },
+  {
+    "id": 59,
+    "name": "Highest Price",
+    "price": 999.99
+  },
+  {
+    "id": 60,
+    "name": "Stock Update",
+    "price": 100
+  },
+  {
+    "id": 61,
+    "name": "Stock Test Api",
+    "price": 20.99
+  }
+]

@@ -1,0 +1,51 @@
+﻿[
+  {
+    "id": 26,
+    "productId": 53,
+    "productName": "Product Demo 1",
+    "availableStock": 121,
+    "pendingStock": 29
+  },
+  {
+    "id": 27,
+    "productId": 54,
+    "productName": "Product Demo 2",
+    "availableStock": 75,
+    "pendingStock": 15
+  },
+  {
+    "id": 28,
+    "productId": 55,
+    "productName": "Product Demo 3",
+    "availableStock": 430,
+    "pendingStock": 70
+  },
+  {
+    "id": 31,
+    "productId": 58,
+    "productName": "Lowest Price",
+    "availableStock": 50,
+    "pendingStock": 0
+  },
+  {
+    "id": 32,
+    "productId": 59,
+    "productName": "Highest Price",
+    "availableStock": 50,
+    "pendingStock": 0
+  },
+  {
+    "id": 33,
+    "productId": 60,
+    "productName": "Stock Update",
+    "availableStock": 10,
+    "pendingStock": 0
+  },
+  {
+    "id": 34,
+    "productId": 61,
+    "productName": "Stock Test Api",
+    "availableStock": 150,
+    "pendingStock": 0
+  }
+]

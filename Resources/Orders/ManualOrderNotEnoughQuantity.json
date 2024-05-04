@@ -1,0 +1,13 @@
+﻿{
+  "orderNo": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "author": "admin",
+  "createdBy": "17b79848-7d98-439f-939c-e24b37c83745",
+  "workPointId": 59,
+  "totalPrice": 0,
+  "products": [
+    {
+      "productId": 53,
+      "quantity": 9999
+    }
+  ]
+}
