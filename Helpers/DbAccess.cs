@@ -134,6 +134,22 @@ namespace LicUiTests.Helpers
                     commandType: CommandType.StoredProcedure);
             }
         }
+
+        public static void BillCleanUp(string OrderNo)
+        {
+            var sql = "SP_BillCleanUp";
+
+            using (IDbConnection connection = new SqlConnection(AppSettings.ConnectionString))
+            {
+                connection.Open();
+                var affectedRows = connection.Execute(sql,
+                    param: new
+                    {
+                        OrderNo
+                    },
+                    commandType: CommandType.StoredProcedure);
+            }
+        }
     }
 }
 

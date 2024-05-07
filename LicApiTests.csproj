@@ -34,6 +34,15 @@
     <None Update="appSettings.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Resources\Bills\BillGeneratorStatusInitialized.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Bills\BillGenerator.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Resources\Bills\GetBillDetailsResponse.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Resources\Company\UpdateCompanyExistingNameRequest.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

@@ -1,0 +1,18 @@
+﻿{
+  "createdBy": "admin",
+  "orderNo": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+  "status": "Procesata",
+  "totalPrice": 99.99,
+  "workpointName": "Demo Workpoint",
+  "companyName": "Demo Company",
+  "products": [
+    {
+      "id": 53,
+      "author": "admin",
+      "dateCreated": "2024-04-27 16:03:52.8120569",
+      "dateUpdated": "2024-04-27 13:03:52.8120483",
+      "name": "Product Demo 1",
+      "price": 99.99
+    }
+  ]
+}

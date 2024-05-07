@@ -166,5 +166,12 @@ namespace LicUiTests.Helpers
             string productId = _scenarioContext.Get<string>("productId");
             DbAccess.OrderProductsReset(productId);
         }
+
+        [AfterScenario("BillCleanUp")]
+        public void BillCleanUp()
+        {
+            string OrderNo = _scenarioContext.Get<string>("OrderNo");
+            DbAccess.BillCleanUp(OrderNo);
+        }
     }
 }

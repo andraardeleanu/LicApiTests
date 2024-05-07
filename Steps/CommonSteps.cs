@@ -137,7 +137,7 @@ namespace LicApiTests.Steps
                     var jsonBodyUpdateStock = JsonConvert.DeserializeObject<UpdateStockRequest>(jsonString);
                     var responseUpdateStock = await _client.PostAsJsonAsync(endpoint, jsonBodyUpdateStock);
                     _scenarioContext.Add(endpoint, responseUpdateStock);
-                    break;
+                    break;                
             }
         }
 
