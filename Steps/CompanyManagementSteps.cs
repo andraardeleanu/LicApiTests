@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using LicApiTests.Dtos;
+using LicApiTests.Models.Responses;
 using Newtonsoft.Json;
 using TechTalk.SpecFlow;
 
@@ -17,10 +17,10 @@ namespace LicApiTests.Steps
         public async Task ThenICanConfirmAllCompaniesDetailsAreDisplayedInTheResultFrom(string endpoint)
         {
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
-            var responseData = JsonConvert.DeserializeObject<IEnumerable<CompanyMapper>>(await response.Content.ReadAsStringAsync());
+            var responseData = JsonConvert.DeserializeObject<IEnumerable<CompanyResponse>>(await response.Content.ReadAsStringAsync());
 
             string expectedResponse = File.ReadAllText("./Resources/Company/GetCompaniesResponse.json");
-            var expectedResponseJson = JsonConvert.DeserializeObject<IEnumerable<CompanyMapper>>(expectedResponse);
+            var expectedResponseJson = JsonConvert.DeserializeObject<IEnumerable<CompanyResponse>>(expectedResponse);
 
             responseData.Should().BeEquivalentTo(expectedResponseJson);
         }
@@ -29,10 +29,10 @@ namespace LicApiTests.Steps
         public async Task ThenICanConfirmDataIsDisplayedInTheResultFrom(string endpoint)
         {
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
-            var responseData = JsonConvert.DeserializeObject<List<CompanyMapper>>(await response.Content.ReadAsStringAsync());
+            var responseData = JsonConvert.DeserializeObject<List<CompanyResponse>>(await response.Content.ReadAsStringAsync());
 
             string expectedResponse = File.ReadAllText("./Resources/Company/GetDemoCompanyResponse.json");
-            var expectedResponseJson = JsonConvert.DeserializeObject<List<CompanyMapper>>(expectedResponse);
+            var expectedResponseJson = JsonConvert.DeserializeObject<List<CompanyResponse>>(expectedResponse);
 
             responseData.Should().BeEquivalentTo(expectedResponseJson);
         }
@@ -41,10 +41,10 @@ namespace LicApiTests.Steps
         public async Task ThenICanConfirmTheSearchedCompanysDataIsDisplayedInTheResultFromG(string endpoint)
         {
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
-            var responseData = JsonConvert.DeserializeObject<CompanyMapper>(await response.Content.ReadAsStringAsync());
+            var responseData = JsonConvert.DeserializeObject<CompanyResponse>(await response.Content.ReadAsStringAsync());
 
             string expectedResponse = File.ReadAllText("./Resources/Company/GetDemoCompanyByIdResponse.json");
-            var expectedResponseJson = JsonConvert.DeserializeObject<CompanyMapper>(expectedResponse);
+            var expectedResponseJson = JsonConvert.DeserializeObject<CompanyResponse>(expectedResponse);
 
             responseData.Should().BeEquivalentTo(expectedResponseJson);
         }
@@ -54,7 +54,7 @@ namespace LicApiTests.Steps
         public async Task ThenIConfirmTheResponseCodeFromIsReturnsTheNewCompanys(string endpoint, string key, string data)
         {
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
-            var responseData = JsonConvert.DeserializeObject<List<CompanyMapper>>(await response.Content.ReadAsStringAsync())!.FirstOrDefault();
+            var responseData = JsonConvert.DeserializeObject<List<CompanyResponse>>(await response.Content.ReadAsStringAsync())!.FirstOrDefault();
 
             if (key == "CUI")
             {

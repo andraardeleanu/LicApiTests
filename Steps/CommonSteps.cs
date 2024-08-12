@@ -1,11 +1,10 @@
 ﻿using BTPopriri.GarnishmentManagement.Api.E2ETests.Core;
 using FluentAssertions;
-using LicApiTests.Dtos;
-using LicApiTests.Mappers;
+using LicApiTests.Authentication;
 using LicApiTests.Models.Requests;
+using LicApiTests.Models.Responses;
 using LicUiTests.Helpers;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System.Net;
 using System.Net.Http.Json;
 using TechTalk.SpecFlow;
@@ -18,6 +17,17 @@ namespace LicApiTests.Steps
         public CommonSteps(ScenarioContext scenarioContext, HttpClient client) : base(scenarioContext, client)
         {
         }
+
+        [When(@"I login as Admin")]
+        public async Task WhenILoginAsAdmin()
+        {
+            var jsonString = await File.ReadAllTextAsync("./Resources/Auth.json");
+            var jsonBodyAuth = JsonConvert.DeserializeObject<AuthRequestBody>(jsonString);
+            var response = await _client.PostAsJsonAsync("/login", jsonBodyAuth);
+            var responseData = JsonConvert.DeserializeObject<AuthResponseBody>(await response.Content.ReadAsStringAsync());
+
+        }
+
 
         [When(@"I make a (.*) request to (.*) with the (.*) param")]
         public async Task WhenIMakeARequestToWithParam(string httpMethod, string endpoint, string param = "")
@@ -37,6 +47,12 @@ namespace LicApiTests.Steps
                 case "PUT":
                 case "PATCH":
                 case "DELETE":
+                    {
+                        var id = int.Parse(_scenarioContext.Get<string>(param));
+                        var resp = await _client.DeleteAsync(endpoint + "?id=" + id);
+                        Utils.AddOrUpdateDataInScenarioContext(_scenarioContext, endpoint, resp);
+                        break;
+                    }
                 case "GET":
                     {
                         var resp = await _client.GetAsync(endpoint + "?" + param);
@@ -53,7 +69,6 @@ namespace LicApiTests.Steps
         {
             var response = await _client.GetAsync(AppSettings.LicApiUrl + endpoint);
             _scenarioContext.Add(endpoint, response);
-
         }
 
         [Then(@"I confirm the response code from (.*) is 200 OK")]
@@ -137,7 +152,17 @@ namespace LicApiTests.Steps
                     var jsonBodyUpdateStock = JsonConvert.DeserializeObject<UpdateStockRequest>(jsonString);
                     var responseUpdateStock = await _client.PostAsJsonAsync(endpoint, jsonBodyUpdateStock);
                     _scenarioContext.Add(endpoint, responseUpdateStock);
-                    break;                
+                    break;
+                case "/register":
+                    var jsonBodyUserRegister = JsonConvert.DeserializeObject<RegisterRequest>(jsonString);
+                    var responseUserRegister = await _client.PostAsJsonAsync(endpoint, jsonBodyUserRegister);
+                    _scenarioContext.Add(endpoint, responseUserRegister);
+                    break;
+                case "/updateCustomer":
+                    var jsonBodyUserUpdate = JsonConvert.DeserializeObject<UpdateCustomerRequest>(jsonString);
+                    var responseUserUpdate = await _client.PostAsJsonAsync(endpoint, jsonBodyUserUpdate);
+                    _scenarioContext.Add(endpoint, responseUserUpdate);
+                    break;
             }
         }
 
@@ -145,11 +170,10 @@ namespace LicApiTests.Steps
         public async Task ThenIConfirmResponseStatusIsWithValidationMessage(string endpoint, int responseStatus, string message)
         {
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
-            var responseData = JsonConvert.DeserializeObject<ApiResponseMapper>(await response.Content.ReadAsStringAsync());
+            var responseData = JsonConvert.DeserializeObject<ApiResponseResponse>(await response.Content.ReadAsStringAsync());
 
             responseData!.Status.Should().Be(responseStatus);
             responseData.Message.Should().Be(message);
         }
-
     }
 }

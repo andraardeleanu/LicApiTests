@@ -1,6 +1,6 @@
 ﻿using FluentAssertions;
-using LicApiTests.Dtos;
 using LicApiTests.Models.Requests;
+using LicApiTests.Models.Responses;
 using LicUiTests.Helpers;
 using Newtonsoft.Json;
 using System;
@@ -27,10 +27,10 @@ namespace LicApiTests.Steps
         public async Task ThenAllWorkpointsDetailsAreDisplayedInTheResultFrom(string endpoint)
         {
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
-            var responseData = JsonConvert.DeserializeObject<IEnumerable<WorkpointMapper>>(await response.Content.ReadAsStringAsync());
+            var responseData = JsonConvert.DeserializeObject<IEnumerable<WorkpointResponse>>(await response.Content.ReadAsStringAsync());
 
             string expectedResponse = File.ReadAllText("./Resources/Workpoints/GetWorkpointsResponse.json");
-            var expectedResponseJson = JsonConvert.DeserializeObject<IEnumerable<WorkpointMapper>>(expectedResponse);
+            var expectedResponseJson = JsonConvert.DeserializeObject<IEnumerable<WorkpointResponse>>(expectedResponse);
 
             responseData.Should().BeEquivalentTo(expectedResponseJson);
         }
@@ -39,10 +39,10 @@ namespace LicApiTests.Steps
         public async Task ThenICanConfirmTheSearchedWorkpointsDataIsDisplayedInTheResultFrom(string endpoint)
         {
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
-            var responseData = JsonConvert.DeserializeObject<List<WorkpointMapper>>(await response.Content.ReadAsStringAsync());
+            var responseData = JsonConvert.DeserializeObject<List<WorkpointResponse>>(await response.Content.ReadAsStringAsync());
 
             string expectedResponse = File.ReadAllText("./Resources/Workpoints/GetDemoWorkpointResponse.json");
-            var expectedResponseJson = JsonConvert.DeserializeObject<List<WorkpointMapper>>(expectedResponse);
+            var expectedResponseJson = JsonConvert.DeserializeObject<List<WorkpointResponse>>(expectedResponse);
 
             responseData.Should().BeEquivalentTo(expectedResponseJson);
         }
@@ -51,10 +51,10 @@ namespace LicApiTests.Steps
         public async Task ThenICanConfirmTheWorkpointsDataIsDisplayedInTheResultFrom(string endpoint)
         {
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
-            var responseData = JsonConvert.DeserializeObject<WorkpointAllDataMapper>(await response.Content.ReadAsStringAsync());
+            var responseData = JsonConvert.DeserializeObject<WorkpointAllDataResponse>(await response.Content.ReadAsStringAsync());
 
             string expectedResponse = File.ReadAllText("./Resources/Workpoints/GetWorkpointByIdResponse.json");
-            var expectedResponseJson = JsonConvert.DeserializeObject<WorkpointAllDataMapper>(expectedResponse);
+            var expectedResponseJson = JsonConvert.DeserializeObject<WorkpointAllDataResponse>(expectedResponse);
 
             responseData.Should().BeEquivalentTo(expectedResponseJson);
         }
@@ -64,10 +64,10 @@ namespace LicApiTests.Steps
         public async Task ThenICanConfirmTheSearchedUsersWorkpointsAreDisplayedInTheResultFrom(string endpoint)
         {
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
-            var responseData = JsonConvert.DeserializeObject<List<WorkpointAllDataMapper>>(await response.Content.ReadAsStringAsync());
+            var responseData = JsonConvert.DeserializeObject<List<WorkpointAllDataResponse>>(await response.Content.ReadAsStringAsync());
 
             string expectedResponse = File.ReadAllText("./Resources/Workpoints/GetWorkpointByUserIdResponse.json");
-            var expectedResponseJson = JsonConvert.DeserializeObject<List<WorkpointAllDataMapper>>(expectedResponse);
+            var expectedResponseJson = JsonConvert.DeserializeObject<List<WorkpointAllDataResponse>>(expectedResponse);
 
             responseData.Should().BeEquivalentTo(expectedResponseJson);
         }
@@ -76,7 +76,7 @@ namespace LicApiTests.Steps
         public async Task ThenIConfirmTheResponseCodeFromReturnsTheNewWorkpoints(string endpoint, string workpointKey, string workpointName)
         {
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
-            var responseData = JsonConvert.DeserializeObject<List<WorkpointMapper>>(await response.Content.ReadAsStringAsync())!.FirstOrDefault();
+            var responseData = JsonConvert.DeserializeObject<List<WorkpointResponse>>(await response.Content.ReadAsStringAsync())!.FirstOrDefault();
             responseData!.Name.Should().Be(workpointName);
             _scenarioContext.Add(workpointKey, responseData.Name);
 
@@ -86,7 +86,7 @@ namespace LicApiTests.Steps
         public async Task ThenIConfirmTheResponseCodeFromGetWorkpointsReturnsTheNewWorkpoints(string endpoint, string idKey)
         {
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
-            var responseData = JsonConvert.DeserializeObject<List<WorkpointMapper>>(await response.Content.ReadAsStringAsync())!.FirstOrDefault();
+            var responseData = JsonConvert.DeserializeObject<List<WorkpointResponse>>(await response.Content.ReadAsStringAsync())!.FirstOrDefault();
             _scenarioContext.Add(idKey, responseData!.Id.ToString());
         }
 
@@ -105,7 +105,7 @@ namespace LicApiTests.Steps
         {            
             var response = await _client.GetAsync(endpoint + "?Name=" + workpointName);
             response.StatusCode.Should().Be(HttpStatusCode.OK);
-            var responseData = JsonConvert.DeserializeObject<List<WorkpointMapper>>(await response.Content.ReadAsStringAsync());
+            var responseData = JsonConvert.DeserializeObject<List<WorkpointResponse>>(await response.Content.ReadAsStringAsync());
             responseData.Should().BeEmpty();
         }
     }

@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using LicApiTests.Dtos;
+using LicApiTests.Models.Responses;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -24,10 +24,10 @@ namespace LicApiTests.Steps
         public async Task ThenAllProductsDetailsAreDisplayedInTheResultFrom(string endpoint)
         {
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
-            var responseData = JsonConvert.DeserializeObject<IEnumerable<ProductMapper>>(await response.Content.ReadAsStringAsync());
+            var responseData = JsonConvert.DeserializeObject<IEnumerable<ProductResponse>>(await response.Content.ReadAsStringAsync());
 
             string expectedResponse = File.ReadAllText("./Resources/Products/GetProductsResponse.json");
-            var expectedResponseJson = JsonConvert.DeserializeObject<IEnumerable<ProductMapper>>(expectedResponse);
+            var expectedResponseJson = JsonConvert.DeserializeObject<IEnumerable<ProductResponse>>(expectedResponse);
 
             responseData.Should().BeEquivalentTo(expectedResponseJson);
         }
@@ -36,10 +36,10 @@ namespace LicApiTests.Steps
         public async Task ThenICanConfirmProductDemoDataIsDisplayedInTheResultFrom(string endpoint)
         {
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
-            var responseData = JsonConvert.DeserializeObject<List<ProductMapper>>(await response.Content.ReadAsStringAsync());
+            var responseData = JsonConvert.DeserializeObject<List<ProductResponse>>(await response.Content.ReadAsStringAsync());
 
             string expectedResponse = File.ReadAllText("./Resources/Products/GetProductDemo1Response.json");
-            var expectedResponseJson = JsonConvert.DeserializeObject<List<ProductMapper>>(expectedResponse);
+            var expectedResponseJson = JsonConvert.DeserializeObject<List<ProductResponse>>(expectedResponse);
 
             responseData.Should().BeEquivalentTo(expectedResponseJson);
         }
@@ -48,7 +48,7 @@ namespace LicApiTests.Steps
         public async Task ThenIConfirmTheResponseCodeFromReturnsTheNewProducts(string endpoint, string key, string name)
         {
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
-            var responseData = JsonConvert.DeserializeObject<List<ProductMapper>>(await response.Content.ReadAsStringAsync())!.FirstOrDefault();
+            var responseData = JsonConvert.DeserializeObject<List<ProductResponse>>(await response.Content.ReadAsStringAsync())!.FirstOrDefault();
             responseData!.Name.Should().Be(name);
             _scenarioContext.Add(key, responseData.Name);
         }

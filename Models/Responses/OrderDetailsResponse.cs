@@ -1,6 +1,6 @@
-﻿namespace LicApiTests.Mappers
+﻿namespace LicApiTests.Models.Responses
 {
-    public class OrderDetailsMapper
+    public class OrderDetailsResponse
     {
         public int Quantity { get; set; }
         public string ProductName { get; set; }

@@ -1,20 +1,13 @@
 ﻿using AventStack.ExtentReports;
 using BoDi;
 using BTPopriri.GarnishmentManagement.Api.E2ETests.Core;
-using Gherkin;
 using LicApiTests.Authentication;
-using LicApiTests.Dtos;
-using Newtonsoft.Json;
-using System.Net;
-using System.Net.Http.Headers;
-using System.Net.Http.Json;
-using System.Runtime.CompilerServices;
 using TechTalk.SpecFlow;
 
 namespace LicUiTests.Helpers
 {
     [Binding]
-    public class Hooks
+    public class Hooks 
     {
         public readonly ScenarioContext _scenarioContext;
         public readonly IObjectContainer _objectContainer;
@@ -31,33 +24,23 @@ namespace LicUiTests.Helpers
             _objectContainer = objectContainer;
             _scenarioContext = scenarioContext;
         }
-        /*
-        [BeforeScenario]
-        public void BeforeScenario()
-        {
-            _scenario = _featureName.CreateNode<Scenario>(_scenarioContext.ScenarioInfo.Title);
-            _objectContainer.RegisterInstanceAs(WebDriver.Driver);
-        }*/
 
         [BeforeScenario("LoginAsAdmin")]
         public async Task LoginAsAdmin()
         {
-            HttpClientHandler handler = new HttpClientHandler();
-
-            handler.Credentials = new NetworkCredential
-            {
-                UserName = AppSettings.Username,
-                Password = AppSettings.Password
-            };
+            HttpClientHandler handler = new();
+           
             handler.ServerCertificateCustomValidationCallback =
                 (message, cert, chain, errors) => { return true; };
-            HttpClient client = new HttpClient(handler);
-            client.BaseAddress = new Uri(AppSettings.LicApiUrl!);
+            HttpClient _client = new HttpClient(handler);
+            _client.BaseAddress = new Uri(AppSettings.LicApiUrl!);
 
-            //var tokenValue = new TokenLogic(client);
-            client.DefaultRequestHeaders.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJhZG1pbiIsImVtYWlsIjoiYWRtaW5AbGljZW50YS5jb20iLCJqdGkiOiIyNDYxMGI2OS0zNThiLTRmZDQtYWI0MC01MDU1NGNiMWUxMzkiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTcxNTE3NjU3MCwiaXNzIjoiaHR0cDovL2xvY2FsaG9zdDo1NzY3OC8iLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0OjU3Njc4LyJ9.BJ3_DAUduCgeVwqCN78uyszGyIaNsb6TC7KfcESlSOc");
+            TokenLogic tokenLogic = new();
 
-            _objectContainer.RegisterInstanceAs(client);
+            var token = await tokenLogic.GetAuthAdminTokenAsync(_client);           
+
+            _client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
+            _objectContainer.RegisterInstanceAs(_client);
 
             var currentTest = _scenarioContext.ScenarioInfo.Title;
             _test = _report.CreateTest(currentTest);
@@ -67,22 +50,19 @@ namespace LicUiTests.Helpers
         [BeforeScenario("LoginAsCustomer")]
         public async Task LoginAsCustomer()
         {
-            HttpClientHandler handler = new HttpClientHandler();
+            HttpClientHandler handler = new();
 
-            handler.Credentials = new NetworkCredential
-            {
-                UserName = AppSettings.Username,
-                Password = AppSettings.Password
-            };
             handler.ServerCertificateCustomValidationCallback =
                 (message, cert, chain, errors) => { return true; };
-            HttpClient client = new HttpClient(handler);
-            client.BaseAddress = new Uri(AppSettings.LicApiUrl!);
+            HttpClient _client = new HttpClient(handler);
+            _client.BaseAddress = new Uri(AppSettings.LicApiUrl!);
 
-            //var tokenValue = new TokenLogic(client);
-            client.DefaultRequestHeaders.Add("Authorization", "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJjdXN0b25lIiwiZW1haWwiOiJjdXN0b25lQGdsbWFpLmNvbSIsImp0aSI6IjJiZDk2N2Y4LTJhZjMtNDczOC05ODAzLTMzMmNhMjU5YTczNCIsImh0dHA6Ly9zY2hlbWFzLm1pY3Jvc29mdC5jb20vd3MvMjAwOC8wNi9pZGVudGl0eS9jbGFpbXMvcm9sZSI6IkN1c3RvbWVyIiwiZXhwIjoxNzE1MTUzODUyLCJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjU3Njc4LyIsImF1ZCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTc2NzgvIn0.OtFAdTpfO8n26AeV3oZ-lMo0md2cQ0a9TFdvKyP5Ojk");
+            TokenLogic tokenLogic = new();
 
-            _objectContainer.RegisterInstanceAs(client);
+            var token = await tokenLogic.GetAuthCustomerTokenAsync(_client);
+
+            _client.DefaultRequestHeaders.Add("Authorization", "Bearer " + token);
+            _objectContainer.RegisterInstanceAs(_client);
 
             var currentTest = _scenarioContext.ScenarioInfo.Title;
             _test = _report.CreateTest(currentTest);
@@ -90,15 +70,10 @@ namespace LicUiTests.Helpers
         }
 
         [BeforeScenario("NotLoggedIn")]
-        public async Task NotLoggedIn()
+        public void NotLoggedIn()
         {
-            HttpClientHandler handler = new HttpClientHandler();
-
-            handler.Credentials = new NetworkCredential
-            {
-                UserName = AppSettings.Username,
-                Password = AppSettings.Password
-            };
+            HttpClientHandler handler = new();
+           
             handler.ServerCertificateCustomValidationCallback =
                 (message, cert, chain, errors) => { return true; };
             HttpClient client = new HttpClient(handler);
@@ -172,6 +147,20 @@ namespace LicUiTests.Helpers
         {
             string OrderNo = _scenarioContext.Get<string>("OrderNo");
             DbAccess.BillCleanUp(OrderNo);
+        }
+
+        [AfterScenario("UserCleanUp")]
+        public void UserCleanUp()
+        {
+            string username = _scenarioContext.Get<string>("username");
+            DbAccess.UserCleanUp(username);
+        }
+
+        [AfterScenario("ResetFirstname")]
+        public void ResetFirstname()
+        {
+            string firstname = _scenarioContext.Get<string>("firstname");
+            DbAccess.ResetFirstname(firstname);
         }
     }
 }

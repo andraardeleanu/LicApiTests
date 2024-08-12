@@ -1,9 +1,7 @@
-﻿using LicApiTests.Dtos;
-
-namespace LicApiTests.Models.Responses
+﻿namespace LicApiTests.Models.Responses
 {
     public class GetCompaniesResponse
     {
-        public CompanyMapper Company { get; set; }
+        public CompanyResponse Company { get; set; }
     }
 }

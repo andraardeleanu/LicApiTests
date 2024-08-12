@@ -1,6 +1,6 @@
-﻿namespace LicApiTests.Mappers
+﻿namespace LicApiTests.Models.Responses
 {
-    public class BillMapper
+    public class BillResponse
     {
         public string OrderNo { get; set; }
         public string WorkpointName { get; set; }

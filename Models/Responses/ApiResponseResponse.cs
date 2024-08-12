@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LicApiTests.Mappers
+namespace LicApiTests.Models.Responses
 {
-    public class ApiResponseMapper
+    public class ApiResponseResponse
     {
         public int Status { get; set; }
         public string Message { get; set; }

@@ -1,7 +1,6 @@
 ﻿using FluentAssertions;
-using LicApiTests.Dtos;
-using LicApiTests.Mappers;
 using LicApiTests.Models.Requests;
+using LicApiTests.Models.Responses;
 using LicUiTests.Helpers;
 using Newtonsoft.Json;
 using System.Net.Http.Json;
@@ -22,10 +21,10 @@ namespace LicApiTests.Steps
         public async Task ThenAllOrdersDetailsAreDisplayedInTheResultFrom(string endpoint)
         {
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
-            var responseData = JsonConvert.DeserializeObject<IEnumerable<OrderMapper>>(await response.Content.ReadAsStringAsync());
+            var responseData = JsonConvert.DeserializeObject<IEnumerable<OrderResponse>>(await response.Content.ReadAsStringAsync());
 
             string expectedResponse = File.ReadAllText("./Resources/Orders/GetAllOrdersResponse.json");
-            var expectedResponseJson = JsonConvert.DeserializeObject<IEnumerable<OrderMapper>>(expectedResponse);
+            var expectedResponseJson = JsonConvert.DeserializeObject<IEnumerable<OrderResponse>>(expectedResponse);
 
             responseData.Should().BeEquivalentTo(expectedResponseJson);
         }
@@ -34,10 +33,10 @@ namespace LicApiTests.Steps
         public async Task ThenOrderSearchedByIdIsDisplayedDisplayedInTheResultFrom(string endpoint)
         {
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
-            var responseData = JsonConvert.DeserializeObject<IEnumerable<OrderMapper>>(await response.Content.ReadAsStringAsync());
+            var responseData = JsonConvert.DeserializeObject<IEnumerable<OrderResponse>>(await response.Content.ReadAsStringAsync());
 
             string expectedResponse = File.ReadAllText("./Resources/Orders/GetOrderWithParams.json");
-            var expectedResponseJson = JsonConvert.DeserializeObject<IEnumerable<OrderMapper>>(expectedResponse);
+            var expectedResponseJson = JsonConvert.DeserializeObject<IEnumerable<OrderResponse>>(expectedResponse);
 
             responseData.Should().BeEquivalentTo(expectedResponseJson);
         }
@@ -46,7 +45,7 @@ namespace LicApiTests.Steps
         public async Task ThenIConfirmTheNewOrderHasBeenPlacedWithANew(string endpoint, string orderNoKey, string param, string idKey)
         {
             var response = await _client.GetAsync(endpoint + "?" + param);
-            var responseData = JsonConvert.DeserializeObject<List<OrderMapper>>(await response.Content.ReadAsStringAsync())!.FirstOrDefault();
+            var responseData = JsonConvert.DeserializeObject<List<OrderResponse>>(await response.Content.ReadAsStringAsync())!.FirstOrDefault();
             Utils.AddOrUpdateDataInScenarioContext(_scenarioContext, orderNoKey, responseData!.OrderNo);
             Utils.AddOrUpdateDataInScenarioContext(_scenarioContext, idKey, (responseData!.Id).ToString());
         }
@@ -56,7 +55,7 @@ namespace LicApiTests.Steps
         public async Task ThenIConfirmTheResponseCodeFromGetOrdersReturnsTheNewOrdersOrderNo(string endpoint, string key, string orderNo)
         {
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
-            var responseData = JsonConvert.DeserializeObject<OrderMapper>(await response.Content.ReadAsStringAsync())!;
+            var responseData = JsonConvert.DeserializeObject<OrderResponse>(await response.Content.ReadAsStringAsync())!;
 
             responseData!.OrderNo.Should().Be(orderNo);
             _scenarioContext.Add(key, responseData.OrderNo);
@@ -76,10 +75,10 @@ namespace LicApiTests.Steps
         public async Task ThenICanConfirmTheSearchedOrdersDetailsAreDisplayedInTheResultFrom(string endpoint)
         {
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
-            var responseData = JsonConvert.DeserializeObject<List<OrderDetailsMapper>>(await response.Content.ReadAsStringAsync());
+            var responseData = JsonConvert.DeserializeObject<List<OrderDetailsResponse>>(await response.Content.ReadAsStringAsync());
 
             string expectedResponse = File.ReadAllText("./Resources/Orders/GetOrderDetailsResponse.json");
-            var expectedResponseJson = JsonConvert.DeserializeObject<List<OrderDetailsMapper>>(expectedResponse);
+            var expectedResponseJson = JsonConvert.DeserializeObject<List<OrderDetailsResponse>>(expectedResponse);
 
             responseData.Should().BeEquivalentTo(expectedResponseJson);
         }

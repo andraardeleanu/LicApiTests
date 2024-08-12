@@ -3,11 +3,10 @@
     public class AppSettings
     {
         public static string? LicApiUrl => Settings.Instance.CustomSettings?.TestSettings?.LicApiUrl;
-        public static string? ConnectionString => AesEncryptionService.Decrypt(Settings.Instance.CustomSettings?.DatabaseConnection?.ConnectionString);
-        public static string? ApiToken => Settings.Instance.CustomSettings?.EndpointsSettings?.ApiToken;
-        public static string? Username => Settings.Instance.CustomSettings?.Credentials?.Username;
-        public static string? Password => Settings.Instance.CustomSettings?.Credentials?.Password;
-        public static string? AuthTokenUsername => Settings.Instance.CustomSettings?.Credentials?.AuthTokenUsername;
-        public static string? AuthTokenPassword => Settings.Instance.CustomSettings?.Credentials?.AuthTokenPassword;
+        public static string? ConnectionString => AesEncryptionService.Decrypt(Settings.Instance.CustomSettings?.DatabaseConnection?.ConnectionString!);
+        public static string? UsernameAdmin => AesEncryptionService.Decrypt(Settings.Instance.CustomSettings?.CredentialsAdmin?.Username!);
+        public static string? PasswordAdmin => AesEncryptionService.Decrypt(Settings.Instance.CustomSettings?.CredentialsAdmin?.Password!);
+        public static string? UsernameCustomer => AesEncryptionService.Decrypt(Settings.Instance.CustomSettings?.CredentialsCustomer?.Username!);
+        public static string? PasswordCustomer => AesEncryptionService.Decrypt(Settings.Instance.CustomSettings?.CredentialsCustomer?.Password!);
     }
 }

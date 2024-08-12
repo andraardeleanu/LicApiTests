@@ -2,8 +2,8 @@
 {
     public class AuthRequestBody
     {
-        public string username { get; set; } = default!;
-        public string password { get; set; } = default!;
-        public string rememberMe { get; set; }
+        public string Username { get; set; } 
+        public string Password { get; set; }
+        public bool RememberMe { get; set; }
     }
 }

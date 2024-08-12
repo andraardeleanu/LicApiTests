@@ -1,7 +1,6 @@
 ﻿using FluentAssertions;
-using LicApiTests.Dtos;
-using LicApiTests.Mappers;
 using LicApiTests.Models.Requests;
+using LicApiTests.Models.Responses;
 using LicUiTests.Helpers;
 using Newtonsoft.Json;
 using System.Net.Http.Json;
@@ -35,7 +34,7 @@ namespace LicApiTests.Steps
             var orderId = _scenarioContext.Get<string>(idKey);
             var orderNo = _scenarioContext.Get<string>(orderNoKey);
             var response = await _client.GetAsync(endpoint + "?orderId=" + orderId);
-            var responseData = JsonConvert.DeserializeObject<BillMapper>(await response.Content.ReadAsStringAsync())!;
+            var responseData = JsonConvert.DeserializeObject<BillResponse>(await response.Content.ReadAsStringAsync())!;
             responseData.OrderNo.Should().Be(orderNo);
             responseData.Status.Should().Be(status);
         }
@@ -44,10 +43,10 @@ namespace LicApiTests.Steps
         public async Task ThenICanConfirmBillDetailsForTheSelectedOrderIdAreDisplayedInTheResultFrom(string endpoint)
         {
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
-            var responseData = JsonConvert.DeserializeObject<BillMapper>(await response.Content.ReadAsStringAsync());
+            var responseData = JsonConvert.DeserializeObject<BillResponse>(await response.Content.ReadAsStringAsync());
 
             string expectedResponse = File.ReadAllText("./Resources/Bills/GetBillDetailsResponse.json");
-            var expectedResponseJson = JsonConvert.DeserializeObject<BillMapper>(expectedResponse);
+            var expectedResponseJson = JsonConvert.DeserializeObject<BillResponse>(expectedResponse);
 
             responseData.Should().BeEquivalentTo(expectedResponseJson);
         }

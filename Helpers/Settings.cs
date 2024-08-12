@@ -30,8 +30,8 @@ namespace BTPopriri.GarnishmentManagement.Api.E2ETests.Core
     public class CustomSettings
     {
         public TestSettings? TestSettings { get; set; }
-        public EndpointsSettings? EndpointsSettings { get; set; }
-        public Credentials? Credentials { get; set; }
+        public CredentialsAdmin? CredentialsAdmin { get; set; }
+        public CredentialsCustomer? CredentialsCustomer { get; set; }
         public DatabaseConnection? DatabaseConnection { get; set; }
     }
 
@@ -40,17 +40,16 @@ namespace BTPopriri.GarnishmentManagement.Api.E2ETests.Core
         public string? LicApiUrl { get; set; }
     }
 
-    public class EndpointsSettings
-    {
-        public string? ApiToken { get; set; }
-    }
-
-    public class Credentials
+    public class CredentialsAdmin
     {
         public string? Username { get; set; }
         public string? Password { get; set; }
-        public string? AuthTokenUsername { get; set; }
-        public string? AuthTokenPassword { get; set; }
+    }
+
+    public class CredentialsCustomer
+    {
+        public string? Username { get; set; }
+        public string? Password { get; set; }
     }
 
     public class DatabaseConnection

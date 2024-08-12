@@ -1,5 +1,5 @@
 ﻿using FluentAssertions;
-using LicApiTests.Dtos;
+using LicApiTests.Models.Responses;
 using LicUiTests.Helpers;
 using Newtonsoft.Json;
 using TechTalk.SpecFlow;
@@ -18,10 +18,10 @@ namespace LicApiTests.Steps
         public async Task ThenAllStocksDetailsAreDisplayedInTheResultFrom(string endpoint)
         {
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
-            var responseData = JsonConvert.DeserializeObject<IEnumerable<StockMapper>>(await response.Content.ReadAsStringAsync());
+            var responseData = JsonConvert.DeserializeObject<IEnumerable<StockResponse>>(await response.Content.ReadAsStringAsync());
 
             string expectedResponse = File.ReadAllText("./Resources/Stock/GetStocksResponse.json");
-            var expectedResponseJson = JsonConvert.DeserializeObject<IEnumerable<StockMapper>>(expectedResponse);
+            var expectedResponseJson = JsonConvert.DeserializeObject<IEnumerable<StockResponse>>(expectedResponse);
 
             responseData.Should().BeEquivalentTo(expectedResponseJson);
         }
@@ -30,10 +30,10 @@ namespace LicApiTests.Steps
         public async Task ThenICanConfirmStockForProductDemoDataIsDisplayedInTheResultFromGetStocks(string endpoint)
         {
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
-            var responseData = JsonConvert.DeserializeObject<List<StockMapper>>(await response.Content.ReadAsStringAsync());
+            var responseData = JsonConvert.DeserializeObject<List<StockResponse>>(await response.Content.ReadAsStringAsync());
 
             string expectedResponse = File.ReadAllText("./Resources/Stock/GetProductStockTestApi.json");
-            var expectedResponseJson = JsonConvert.DeserializeObject<List<StockMapper>>(expectedResponse);
+            var expectedResponseJson = JsonConvert.DeserializeObject<List<StockResponse>>(expectedResponse);
 
             responseData.Should().BeEquivalentTo(expectedResponseJson);
         }
@@ -42,10 +42,10 @@ namespace LicApiTests.Steps
         public async Task ThenICanConfirmSearchedStockDataIsDisplayedInTheResultFrom(string endpoint)
         {
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
-            var responseData = JsonConvert.DeserializeObject<StockMapper>(await response.Content.ReadAsStringAsync());
+            var responseData = JsonConvert.DeserializeObject<StockResponse>(await response.Content.ReadAsStringAsync());
 
             string expectedResponse = File.ReadAllText("./Resources/Stock/GetStockByIdResponse.json");
-            var expectedResponseJson = JsonConvert.DeserializeObject<StockMapper>(expectedResponse);
+            var expectedResponseJson = JsonConvert.DeserializeObject<StockResponse>(expectedResponse);
 
             responseData.Should().BeEquivalentTo(expectedResponseJson);
         }
@@ -54,10 +54,10 @@ namespace LicApiTests.Steps
         public async Task ThenICanConfirmSearchedProductReturnsTheExpectedStock(string endpoint)
         {
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
-            var responseData = JsonConvert.DeserializeObject<List<StockMapper>>(await response.Content.ReadAsStringAsync());
+            var responseData = JsonConvert.DeserializeObject<List<StockResponse>>(await response.Content.ReadAsStringAsync());
 
             string expectedResponse = File.ReadAllText("./Resources/Stock/GetStockByProductIdResponse.json");
-            var expectedResponseJson = JsonConvert.DeserializeObject<List<StockMapper>>(expectedResponse);
+            var expectedResponseJson = JsonConvert.DeserializeObject<List<StockResponse>>(expectedResponse);
 
             responseData.Should().BeEquivalentTo(expectedResponseJson);
         }
@@ -67,7 +67,7 @@ namespace LicApiTests.Steps
         {
             Utils.AddOrUpdateDataInScenarioContext(_scenarioContext, productKey, productId);
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
-            var responseData = JsonConvert.DeserializeObject<List<StockMapper>>(await response.Content.ReadAsStringAsync())!.FirstOrDefault();
+            var responseData = JsonConvert.DeserializeObject<List<StockResponse>>(await response.Content.ReadAsStringAsync())!.FirstOrDefault();
 
             responseData!.AvailableStock.Should().Be(availableStock);
             responseData!.PendingStock.Should().Be(pendingStock);                       

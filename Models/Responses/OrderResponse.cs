@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LicApiTests.Dtos
+namespace LicApiTests.Models.Responses
 {
-    public class OrderMapper
+    public class OrderResponse
     {
         public int Id { get; set; }
         public string OrderNo { get; set; }

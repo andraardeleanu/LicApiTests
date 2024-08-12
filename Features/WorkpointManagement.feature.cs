@@ -444,12 +444,12 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Successfully update workpoint\'s name")]
         [NUnit.Framework.CategoryAttribute("LoginAsAdmin")]
-        [NUnit.Framework.CategoryAttribute("ResetWorkpoint")]
+        [NUnit.Framework.CategoryAttribute("ResetWorkpointData")]
         public void SuccessfullyUpdateWorkpointsName()
         {
             string[] tagsOfScenario = new string[] {
                     "LoginAsAdmin",
-                    "ResetWorkpoint"};
+                    "ResetWorkpointData"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully update workpoint\'s name", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 71
@@ -548,8 +548,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "\'s Id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 89
- testRunner.When("I make a POST request to /removeWorkpoint with the Id param to delete the recentl" +
-                        "y added workpoint", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a DELETE request to /removeWorkpoint with the Id param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 90
  testRunner.Then("I confirm the response code from /removeWorkpoint is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -589,8 +588,7 @@ this.ScenarioInitialize(scenarioInfo);
                         "\'s Id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 97
- testRunner.When("I make a POST request to /removeWorkpoint with the Id param to delete the recentl" +
-                        "y added workpoint", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a DELETE request to /removeWorkpoint with the Id param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 98
  testRunner.Then("I confirm the response code from /removeWorkpoint is 400 Bad Request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

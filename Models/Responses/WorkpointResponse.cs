@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LicApiTests.Dtos
+namespace LicApiTests.Models.Responses
 {
-    public class WorkpointMapper
+    public class WorkpointResponse
     {
         public int Id { get; set; }
         public string Name { get; set; }

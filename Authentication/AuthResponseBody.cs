@@ -2,7 +2,7 @@
 {
     public class AuthResponseBody
     {
-        public string token { get; set; } = default!;
-        public string expiration { get; set; } = default!;
+        public string Token { get; set; } = default!;
+        public DateTime Expiration { get; set; } = default!;
     }
 }

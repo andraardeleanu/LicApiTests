@@ -1,6 +1,6 @@
-﻿namespace LicApiTests.Dtos
+﻿namespace LicApiTests.Models.Responses
 {
-    public class ProductMapper
+    public class ProductResponse
     {
         public int Id { get; set; }
         public string Name { get; set; }

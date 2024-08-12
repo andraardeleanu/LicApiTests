@@ -67,7 +67,7 @@ Scenario: All fields are mandatory for adding a new workpoint - address
 	Then I confirm the response code from /addWorkpoint is 400 Bad Request
 	And I confirm /addWorkpoint returns response status 1 with validation message: Toate campurile sunt obligatorii.
 
-@LoginAsAdmin @ResetWorkpoint
+@LoginAsAdmin @ResetWorkpointData
 Scenario: Successfully update workpoint's name
 	When I make a POST request to /updateWorkpoint using './Resources/Workpoints/UpdateWorkpointRequest.json' file
 	Then I confirm the response code from /updateWorkpoint is 200 OK
@@ -86,7 +86,7 @@ Scenario: Successfully remove workpoint
 	Then I confirm the response code from /addWorkpoint is 200 OK
 	When I make a GET request to /getWorkpoints with the Name=Workpoint API Test param
 	Then I confirm the response code from /getWorkpoints returns the newly added workpoint's Id
-	When I make a POST request to /removeWorkpoint with the Id param to delete the recently added workpoint
+	When I make a DELETE request to /removeWorkpoint with the Id param
 	Then I confirm the response code from /removeWorkpoint is 200 OK
 	And I confirm /getWorkpoints doesn't return the recently added workpoint - Workpoint API Test
 
@@ -94,6 +94,6 @@ Scenario: Successfully remove workpoint
 Scenario: Cannot remove workpoints that have orders assigned to them
 	When I make a GET request to /getWorkpoints with the Name=Demo Workpoint param
 	Then I confirm the response code from /getWorkpoints returns the newly added workpoint's Id
-	When I make a POST request to /removeWorkpoint with the Id param to delete the recently added workpoint
+	When I make a DELETE request to /removeWorkpoint with the Id param
 	Then I confirm the response code from /removeWorkpoint is 400 Bad Request
 	And I confirm /removeWorkpoint returns response status 1 with validation message: Nu se pot sterge punctele de lucru pe care exista comenzi.

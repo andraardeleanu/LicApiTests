@@ -150,6 +150,38 @@ namespace LicUiTests.Helpers
                     commandType: CommandType.StoredProcedure);
             }
         }
+
+        public static void UserCleanUp(string username)
+        {
+            var sql = "SP_UserCleanUp";
+
+            using (IDbConnection connection = new SqlConnection(AppSettings.ConnectionString))
+            {
+                connection.Open();
+                var affectedRows = connection.Execute(sql,
+                    param: new
+                    {
+                        username
+                    },
+                    commandType: CommandType.StoredProcedure);
+            }
+        }
+
+        public static void ResetFirstname(string username)
+        {
+            var sql = "SP_ResetFirstname";
+
+            using (IDbConnection connection = new SqlConnection(AppSettings.ConnectionString))
+            {
+                connection.Open();
+                var affectedRows = connection.Execute(sql,
+                    param: new
+                    {
+                        username
+                    },
+                    commandType: CommandType.StoredProcedure);
+            }
+        }
     }
 }
 

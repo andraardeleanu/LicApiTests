@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace LicApiTests.Dtos
+namespace LicApiTests.Models.Responses
 {
-    public class WorkpointAllDataMapper
+    public class WorkpointAllDataResponse
     {
         public string Name { get; set; }
         public string Address { get; set; }
@@ -17,6 +17,6 @@ namespace LicApiTests.Dtos
         public string Author { get; set; }
         public DateTime DateCreated { get; set; }
         public DateTime DateUpdated { get; set; }
-             
+
     }
 }

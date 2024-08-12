@@ -1,32 +1,39 @@
 ﻿using BTPopriri.GarnishmentManagement.Api.E2ETests.Core;
-using FluentAssertions;
-using LicApiTests.Dtos;
 using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
-using System.Net;
 using System.Net.Http.Json;
 
 namespace LicApiTests.Authentication
 {
     public class TokenLogic
     {
-        private readonly HttpClient apiClient;
-        public string Token;
-
-        public TokenLogic(HttpClient apiClient)
+        public async Task<string> GetAuthAdminTokenAsync(HttpClient apiClient)
         {
-            this.apiClient = apiClient;
-            Token = GetAuthTokenAsync().ToString()!;
+
+            var jsonString = await File.ReadAllTextAsync("./Resources/AuthAdmin.json");
+            var jsonBodyAuth = JsonConvert.DeserializeObject<AuthRequestBody>(jsonString);
+
+            jsonBodyAuth!.Username = AppSettings.UsernameAdmin!;
+            jsonBodyAuth!.Password = AppSettings.PasswordAdmin!;
+
+            var response = await apiClient.PostAsJsonAsync("/login", jsonBodyAuth);
+            var responseData = JsonConvert.DeserializeObject<AuthResponseBody>(await response.Content.ReadAsStringAsync());
+
+            return responseData!.Token;
         }
 
-        public async Task<string> GetAuthTokenAsync()
+        public async Task<string> GetAuthCustomerTokenAsync(HttpClient apiClient)
         {
-            var jsonString = await File.ReadAllTextAsync("./Resources/Auth.json");            
-            var response = await apiClient.PostAsJsonAsync("/login", jsonString);
-            response.StatusCode.Should().Be(HttpStatusCode.OK);
-            var responseData = JsonConvert.DeserializeObject<AuthResponseBody>(await response.Content.ReadAsStringAsync());            
 
-            return responseData.token;
+            var jsonString = await File.ReadAllTextAsync("./Resources/AuthCustomer.json");
+            var jsonBodyAuth = JsonConvert.DeserializeObject<AuthRequestBody>(jsonString);
+
+            jsonBodyAuth!.Username = AppSettings.UsernameCustomer!;
+            jsonBodyAuth!.Password = AppSettings.PasswordCustomer!;
+
+            var response = await apiClient.PostAsJsonAsync("/login", jsonBodyAuth);
+            var responseData = JsonConvert.DeserializeObject<AuthResponseBody>(await response.Content.ReadAsStringAsync());
+
+            return responseData!.Token;
         }
     }
 }
