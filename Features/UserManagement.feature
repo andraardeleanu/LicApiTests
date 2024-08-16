@@ -23,7 +23,7 @@ Scenario: Successfully get loged in user
 	Then I confirm the response code from /getUser is 200 OK
 	And I can confirm Andra Donca user is displayed in the result from /getUser
 
-@LoginAsCustomer
+@LoginAsAdmin
 Scenario: Successfully get user by username
 	When I make a GET request to /getUserByUsername with the username=custone param
 	Then I confirm the response code from /getUserByUsername is 200 OK
@@ -59,8 +59,8 @@ Scenario: Cannot register a new user without selecting a valid company
 Scenario: Successfully update user
 	When I make a POST request to /updateCustomer using './Resources/User/UpdateCustomerData.json' file
 	Then I confirm the response code from /updateCustomer is 200 OK
-	When I make a GET request to /getUserByUsername with the username=usertest param
-	Then I confirm the response code from /getUserByUsername returns the new user's firstname - User-updated
+	When I make a GET request to /getUserByUsername with the username=userToBeUpdated param
+	Then I confirm the response code from /getUserByUsername returns the new user's firstname - Updated
 
 @Ignore @Manual
 Scenario: Successfully update password for a new user

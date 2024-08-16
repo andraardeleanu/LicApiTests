@@ -196,11 +196,11 @@ this.ScenarioInitialize(scenarioInfo);
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Successfully get user by username")]
-        [NUnit.Framework.CategoryAttribute("LoginAsCustomer")]
+        [NUnit.Framework.CategoryAttribute("LoginAsAdmin")]
         public void SuccessfullyGetUserByUsername()
         {
             string[] tagsOfScenario = new string[] {
-                    "LoginAsCustomer"};
+                    "LoginAsAdmin"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully get user by username", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 27
@@ -400,11 +400,12 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("I confirm the response code from /updateCustomer is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 62
- testRunner.When("I make a GET request to /getUserByUsername with the username=usertest param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getUserByUsername with the username=userToBeUpdated para" +
+                        "m", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 63
  testRunner.Then("I confirm the response code from /getUserByUsername returns the new user\'s firstn" +
-                        "ame - User-updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+                        "ame - Updated", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

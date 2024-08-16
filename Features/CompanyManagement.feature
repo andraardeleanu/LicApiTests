@@ -60,12 +60,14 @@ Scenario: Both fields are mandatory for adding a new company - missing name
 	Then I confirm the response code from /addCompany is 400 Bad Request
 	And I confirm /addCompany returns response status 1 with validation message: Toate campurile sunt obligatorii.
 
+
 @LoginAsAdmin @ResetCompanyName
 Scenario: Successfully update company's name
 	When I make a POST request to /updateCompany using './Resources/Company/UpdateCompanyRequest.json' file
 	Then I confirm the response code from /updateCompany is 200 OK
 	When I make a GET request to /getCompanies with the Name=Update Company Test param
 	Then I confirm the response code from /getCompanies returns the new company's Name - Update Company Test-XYZ
+
 
 @LoginAsAdmin 
 Scenario: Cannot update company to an already existing name
