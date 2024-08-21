@@ -100,6 +100,8 @@ namespace LicUiTests.Helpers
             DbAccess.ResetCompanyName(name);
         }
 
+
+
         [AfterScenario("WorkpointCleanUp")]
         public void WorkpointCleanUp()
         {

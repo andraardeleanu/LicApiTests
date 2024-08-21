@@ -414,7 +414,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "ResetCompanyName"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully update company\'s name", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 64
+#line 65
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -424,17 +424,17 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 65
+#line 66
  testRunner.When("I make a POST request to /updateCompany using \'./Resources/Company/UpdateCompanyR" +
                         "equest.json\' file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 66
+#line 67
  testRunner.Then("I confirm the response code from /updateCompany is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 67
+#line 68
  testRunner.When("I make a GET request to /getCompanies with the Name=Update Company Test param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 68
+#line 69
  testRunner.Then("I confirm the response code from /getCompanies returns the new company\'s Name - U" +
                         "pdate Company Test-XYZ", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -451,7 +451,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "LoginAsAdmin"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cannot update company to an already existing name", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 71
+#line 73
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -461,14 +461,14 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 72
+#line 74
  testRunner.When("I make a POST request to /updateCompany using \'./Resources/Company/UpdateCompanyE" +
                         "xistingNameRequest.json\' file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 73
+#line 75
  testRunner.Then("I confirm the response code from /updateCompany is 400 Bad Request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 74
+#line 76
  testRunner.And("I confirm /updateCompany returns response status 1 with validation message: Exist" +
                         "a deja o companie cu acest nume.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
