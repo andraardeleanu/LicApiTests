@@ -1,3 +1,5 @@
+
+
 @WorkpointManagement
 Feature: WorkpointManagement
 As a Licenta API consumer, I want to be able to manage workpoints
@@ -14,13 +16,13 @@ Scenario: Successfully get all workpoints
 
 @LoginAsAdmin
 Scenario: Successfully get workpoint by name
-	When I make a GET request to /getWorkpoints with the Name=Demo Workpoint param
+	When I make a GET request to /getWorkpoints with the Name=Workpoint Demo param
 	Then I confirm the response code from /getWorkpoints is 200 OK
 	And I can confirm the searched workpoint's data is displayed in the result from /getWorkpoints
 	
 @LoginAsAdmin
 Scenario: Successfully get workpoint by id
-	When I make a GET request to /getWorkpointById with the Id=59 param
+	When I make a GET request to /getWorkpointById with the Id=1 param
 	Then I confirm the response code from /getWorkpointById is 200 OK
 	And I can confirm the workpoint's 59 data is displayed in the result from /getWorkpointById
 
@@ -32,13 +34,13 @@ Scenario: Validation message is displayed if workpoint is not found by id
 
 @LoginAsAdmin
 Scenario: Successfully get workpoint by user id
-	When I make a GET request to /getWorkpointsByUserId with the UserId=549f6812-5753-4442-903c-e52e696ba5c2 param
+	When I make a GET request to /getWorkpointsByUserId with the UserId=45953c90-29d1-48db-a173-ea8ab1009f1d param
 	Then I confirm the response code from /getWorkpointsByUserId is 200 OK
 	And I can confirm the searched user's workpoints are displayed in the result from /getWorkpointsByUserId
 
 @LoginAsAdmin
 Scenario: Successfully get workpoint by company id
-	When I make a GET request to /getWorkpointsFromCompany with the companyId=2 param
+	When I make a GET request to /getWorkpointsFromCompany with the companyId=1 param
 	Then I confirm the response code from /getWorkpointsFromCompany is 200 OK
 	And I can confirm the searched company's workpoints are displayed in the result from /getWorkpointsFromCompany
 
@@ -92,7 +94,7 @@ Scenario: Successfully remove workpoint
 
 @LoginAsAdmin
 Scenario: Cannot remove workpoints that have orders assigned to them
-	When I make a GET request to /getWorkpoints with the Name=Demo Workpoint param
+	When I make a GET request to /getWorkpoints with the Name=Workpoint Demo param
 	Then I confirm the response code from /getWorkpoints returns the newly added workpoint's Id
 	When I make a DELETE request to /removeWorkpoint with the Id param
 	Then I confirm the response code from /removeWorkpoint is 400 Bad Request

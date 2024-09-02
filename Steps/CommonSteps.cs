@@ -170,7 +170,7 @@ namespace LicApiTests.Steps
         public async Task ThenIConfirmResponseStatusIsWithValidationMessage(string endpoint, int responseStatus, string message)
         {
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
-            var responseData = JsonConvert.DeserializeObject<ApiResponseResponse>(await response.Content.ReadAsStringAsync());
+            var responseData = JsonConvert.DeserializeObject<Result>(await response.Content.ReadAsStringAsync());
 
             responseData!.Status.Should().Be(responseStatus);
             responseData.Message.Should().Be(message);

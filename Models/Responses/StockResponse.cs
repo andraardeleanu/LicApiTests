@@ -1,4 +1,6 @@
-﻿namespace LicApiTests.Models.Responses
+﻿using System.Security.Policy;
+
+namespace LicApiTests.Models.Responses
 {
     public class StockResponse
     {
@@ -7,5 +9,8 @@
         public string ProductName { get; set; }
         public int AvailableStock { get; set; }
         public int PendingStock { get; set; }
+        public string Author { get; set; }
+        public DateTime DateCreated { get; set; }
+        public DateTime DateUpdated { get; set; }
     }
 }

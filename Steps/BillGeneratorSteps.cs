@@ -16,22 +16,20 @@ namespace LicApiTests.Steps
         {
         }
 
-        [When(@"I make a POST request to (.*) using '(.*)' file for (.*)")]
-        public async Task WhenIMakeAPOSTRequestToBillGeneratorUsingFileFor(string endpoint, string filePath, string orderNoKey)
+        [When(@"I make a POST request to (.*) for the order bill with (.*) param")]
+        public async Task WhenIMakeAPOSTRequestToBillGeneratorForTheOrderBillWithOrderNoParam(string endpoint, string orderNokey)
         {
-            var orderNo = _scenarioContext.Get<string>(orderNoKey);
-            var jsonString = await File.ReadAllTextAsync(filePath);
-            var jsonBodyBillGenerator = JsonConvert.DeserializeObject<BillGeneratorRequest>(jsonString);
-            jsonBodyBillGenerator!.OrderNo = orderNo;
-
-            var responseBillGenerator = await _client.PostAsJsonAsync(endpoint, jsonBodyBillGenerator);
-            Utils.AddOrUpdateDataInScenarioContext(_scenarioContext, endpoint, responseBillGenerator);
+            var orderNo = _scenarioContext.Get<string>(orderNokey);
+            var billGeneratorRequest = new BillGeneratorRequest();
+            billGeneratorRequest.OrderNo = orderNo;
+            var response = await _client.PostAsJsonAsync(endpoint, billGeneratorRequest);
+            _scenarioContext.Add(endpoint, response);
         }
 
         [Then(@"I confirm (.*) returns the bill for the new (.*), (.*) and Status - (.*)")]
         public async Task ThenIConfirmBillGeneratorReturnsTheNewBillWithANewId(string endpoint, string idKey, string orderNoKey, string status)
         {
-            var orderId = _scenarioContext.Get<string>(idKey);
+            var orderId = _scenarioContext.Get<int>(idKey);
             var orderNo = _scenarioContext.Get<string>(orderNoKey);
             var response = await _client.GetAsync(endpoint + "?orderId=" + orderId);
             var responseData = JsonConvert.DeserializeObject<BillResponse>(await response.Content.ReadAsStringAsync())!;

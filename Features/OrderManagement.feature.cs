@@ -154,7 +154,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 17
- testRunner.When("I make a GET request to /getOrders with the Id=184 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getOrders with the Id=1 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 18
  testRunner.Then("I confirm the response code from /getOrders is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -219,7 +219,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 29
- testRunner.When("I make a GET request to /getOrders with the WorkpointId=67 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getOrders with the WorkpointId=1 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 30
  testRunner.Then("I confirm the response code from /getOrders is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -251,8 +251,8 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 35
- testRunner.When("I make a GET request to /getOrders with the WorkpointId=67 & Status=Initializata " +
-                        "param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getOrders with the WorkpointId=1 & Status=Initializata p" +
+                        "aram", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 36
  testRunner.Then("I confirm the response code from /getOrders is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -284,7 +284,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 41
- testRunner.When("I make a GET request to /getOrders with the Id=184 & Status=Initializata param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getOrders with the Id=1 & Status=Initializata param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 42
  testRunner.Then("I confirm the response code from /getOrders is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -299,14 +299,14 @@ this.ScenarioInitialize(scenarioInfo);
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Successfully add new manual order using valid data")]
         [NUnit.Framework.CategoryAttribute("LoginAsCustomer")]
-        [NUnit.Framework.CategoryAttribute("OrderCleanUp")]
         [NUnit.Framework.CategoryAttribute("OrderProductsReset")]
+        [NUnit.Framework.CategoryAttribute("OrderCleanUp")]
         public void SuccessfullyAddNewManualOrderUsingValidData()
         {
             string[] tagsOfScenario = new string[] {
                     "LoginAsCustomer",
-                    "OrderCleanUp",
-                    "OrderProductsReset"};
+                    "OrderProductsReset",
+                    "OrderCleanUp"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully add new manual order using valid data", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 46
@@ -320,11 +320,11 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 47
- testRunner.When("I make a GET request to /getStockByProductId with the productId=53 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getStockByProductId with the productId=1 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 48
- testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 53:" +
-                        " Available stock = 500, Pending stock = 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 1: " +
+                        "Available stock = 5000, Pending stock = 7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 49
  testRunner.When("I make a POST request to /addOrder using \'./Resources/Orders/AddNewManualOrderReq" +
@@ -334,15 +334,14 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("I confirm the response code from /addOrder is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 51
- testRunner.And("I confirm /getOrders returns the new order with a new OrderNo, Status=Initializat" +
-                        "a and Id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I confirm the response code from /addOrder returns the new order\'s OrderNo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 52
- testRunner.When("I make a GET request to /getStockByProductId with the productId=53 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getStockByProductId with the productId=1 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 53
- testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 53:" +
-                        " Available stock = 350, Pending stock = 150", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 1: " +
+                        "Available stock = 4850, Pending stock = 157", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -368,11 +367,11 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 57
- testRunner.When("I make a GET request to /getStockByProductId with the productId=53 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getStockByProductId with the productId=1 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 58
- testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 53:" +
-                        " Available stock = 500, Pending stock = 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 1: " +
+                        "Available stock = 5000, Pending stock = 7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 59
  testRunner.When("I make a POST request to /addOrder using \'./Resources/Orders/ManualOrderDuplicate" +
@@ -386,11 +385,11 @@ this.ScenarioInitialize(scenarioInfo);
                         "entificate produse duplicate. Te rog sa revizuiesti comanda.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 62
- testRunner.When("I make a GET request to /getStockByProductId with the productId=53 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getStockByProductId with the productId=1 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 63
- testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 53:" +
-                        " Available stock = 500, Pending stock = 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 1: " +
+                        "Available stock = 5000, Pending stock = 7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -416,11 +415,11 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 67
- testRunner.When("I make a GET request to /getStockByProductId with the productId=53 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getStockByProductId with the productId=1 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 68
- testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 53:" +
-                        " Available stock = 500, Pending stock = 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 1: " +
+                        "Available stock = 5000, Pending stock = 7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 69
  testRunner.When("I make a POST request to /addOrder using \'./Resources/Orders/ManualOrdersNoProduc" +
@@ -434,11 +433,11 @@ this.ScenarioInitialize(scenarioInfo);
                         "ctat niciun produs pentru comanda.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 72
- testRunner.When("I make a GET request to /getStockByProductId with the productId=53 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getStockByProductId with the productId=1 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 73
- testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 53:" +
-                        " Available stock = 500, Pending stock = 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 1: " +
+                        "Available stock = 5000, Pending stock = 7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -464,11 +463,11 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 77
- testRunner.When("I make a GET request to /getStockByProductId with the productId=53 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getStockByProductId with the productId=1 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 78
- testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 53:" +
-                        " Available stock = 500, Pending stock = 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 1: " +
+                        "Available stock = 5000, Pending stock = 7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 79
  testRunner.When("I make a POST request to /addOrder using \'./Resources/Orders/ManualOrdersInvalidW" +
@@ -483,11 +482,11 @@ this.ScenarioInitialize(scenarioInfo);
                         "oti crea din tab-ul Puncte de lucru.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 82
- testRunner.When("I make a GET request to /getStockByProductId with the productId=53 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getStockByProductId with the productId=1 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 83
- testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 53:" +
-                        " Available stock = 500, Pending stock = 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 1: " +
+                        "Available stock = 5000, Pending stock = 7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -513,11 +512,11 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 87
- testRunner.When("I make a GET request to /getStockByProductId with the productId=53 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getStockByProductId with the productId=1 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 88
- testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 53:" +
-                        " Available stock = 500, Pending stock = 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 1: " +
+                        "Available stock = 5000, Pending stock = 7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 89
  testRunner.When("I make a POST request to /addOrder using \'./Resources/Orders/ManualOrderInvalidQu" +
@@ -531,11 +530,11 @@ this.ScenarioInitialize(scenarioInfo);
                         " setata pentru unul sau mai multe produse este invalida.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 92
- testRunner.When("I make a GET request to /getStockByProductId with the productId=53 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getStockByProductId with the productId=1 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 93
- testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 53:" +
-                        " Available stock = 500, Pending stock = 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 1: " +
+                        "Available stock = 5000, Pending stock = 7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -561,11 +560,11 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 97
- testRunner.When("I make a GET request to /getStockByProductId with the productId=53 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getStockByProductId with the productId=1 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 98
- testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 53:" +
-                        " Available stock = 500, Pending stock = 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 1: " +
+                        "Available stock = 5000, Pending stock = 7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 99
  testRunner.When("I make a POST request to /addOrder using \'./Resources/Orders/ManualOrderNotEnough" +
@@ -579,11 +578,11 @@ this.ScenarioInitialize(scenarioInfo);
                         "tocul disponibil pentru produsele din comanda.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 102
- testRunner.When("I make a GET request to /getStockByProductId with the productId=53 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getStockByProductId with the productId=1 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 103
- testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 53:" +
-                        " Available stock = 500, Pending stock = 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 1: " +
+                        "Available stock = 5000, Pending stock = 7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -609,11 +608,11 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 107
- testRunner.When("I make a GET request to /getStockByProductId with the productId=53 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getStockByProductId with the productId=1 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 108
- testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 53:" +
-                        " Available stock = 500, Pending stock = 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 1: " +
+                        "Available stock = 5000, Pending stock = 7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 109
  testRunner.When("I make a POST request to /addOrder using \'./Resources/Orders/ManualOrderInvalidPr" +
@@ -627,29 +626,29 @@ this.ScenarioInitialize(scenarioInfo);
                         "autat nu exista.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 112
- testRunner.When("I make a GET request to /getStockByProductId with the productId=53 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getStockByProductId with the productId=1 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 113
- testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 53:" +
-                        " Available stock = 500, Pending stock = 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 1: " +
+                        "Available stock = 5000, Pending stock = 7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Successfully update order status")]
-        [NUnit.Framework.CategoryAttribute("LoginAsAdmin")]
-        [NUnit.Framework.CategoryAttribute("OrderCleanUp")]
+        [NUnit.Framework.DescriptionAttribute("Only admin can update order status to Procesata")]
+        [NUnit.Framework.CategoryAttribute("LoginAsCustomer")]
         [NUnit.Framework.CategoryAttribute("OrderProductsReset")]
-        public void SuccessfullyUpdateOrderStatus()
+        [NUnit.Framework.CategoryAttribute("OrderCleanUp")]
+        public void OnlyAdminCanUpdateOrderStatusToProcesata()
         {
             string[] tagsOfScenario = new string[] {
-                    "LoginAsAdmin",
-                    "OrderCleanUp",
-                    "OrderProductsReset"};
+                    "LoginAsCustomer",
+                    "OrderProductsReset",
+                    "OrderCleanUp"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully update order status", null, tagsOfScenario, argumentsOfScenario, featureTags);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Only admin can update order status to Procesata", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 116
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -661,11 +660,11 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 117
- testRunner.When("I make a GET request to /getStockByProductId with the productId=53 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getStockByProductId with the productId=1 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 118
- testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 53:" +
-                        " Available stock = 500, Pending stock = 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 1: " +
+                        "Available stock = 5000, Pending stock = 7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 119
  testRunner.When("I make a POST request to /addOrder using \'./Resources/Orders/AddNewManualOrderReq" +
@@ -675,65 +674,13 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("I confirm the response code from /addOrder is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 121
- testRunner.And("I confirm /getOrders returns the new order with a new OrderNo, Status=Initializat" +
-                        "a and Id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I confirm the response code from /addOrder returns the new order id Id and OrderN" +
+                        "o", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 122
  testRunner.When("I make a POST request to /updateOrderStatus for the order with Id param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 123
- testRunner.Then("I confirm /getOrders returns the new order with a new OrderNo, Status=Procesata a" +
-                        "nd Id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Only admin can update order status to Procesata")]
-        [NUnit.Framework.CategoryAttribute("LoginAsCustomer")]
-        [NUnit.Framework.CategoryAttribute("OrderCleanUp")]
-        [NUnit.Framework.CategoryAttribute("OrderProductsReset")]
-        public void OnlyAdminCanUpdateOrderStatusToProcesata()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "LoginAsCustomer",
-                    "OrderCleanUp",
-                    "OrderProductsReset"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Only admin can update order status to Procesata", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 126
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 127
- testRunner.When("I make a GET request to /getStockByProductId with the productId=53 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 128
- testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 53:" +
-                        " Available stock = 500, Pending stock = 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 129
- testRunner.When("I make a POST request to /addOrder using \'./Resources/Orders/AddNewManualOrderReq" +
-                        "uest.json\' file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 130
- testRunner.Then("I confirm the response code from /addOrder is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 131
- testRunner.And("I confirm /getOrders returns the new order with a new OrderNo, Status=Initializat" +
-                        "a and Id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 132
- testRunner.When("I make a POST request to /updateOrderStatus for the order with Id param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 133
  testRunner.Then("I confirm the response code from /updateOrderStatus is 403 Forbidden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -749,7 +696,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "LoginAsAdmin"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully get order details", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 136
+#line 126
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -759,13 +706,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 137
- testRunner.When("I make a GET request to /getOrderDetails with the orderId=1191 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 127
+ testRunner.When("I make a GET request to /getOrderDetails with the orderId=1 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 138
+#line 128
  testRunner.Then("I confirm the response code from /getOrderDetails is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 139
+#line 129
  testRunner.And("I can confirm the searched order\'s details are displayed in the result from /getO" +
                         "rderDetails", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden

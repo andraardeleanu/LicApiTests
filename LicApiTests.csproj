@@ -122,6 +122,9 @@
     <None Update="Resources\User\LoggedInAdmin.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Resources\User\LoggedInCustomer.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Resources\User\UpdateCustomerData.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -158,7 +161,7 @@
     <None Update="Resources\Workpoints\GetDemoWorkpointResponse.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Resources\Products\GetProductDemo1Response.json">
+    <None Update="Resources\Products\GetStockTestApiResponse.json">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Resources\Stock\GetStockByProductIdResponse.json">

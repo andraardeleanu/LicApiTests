@@ -38,7 +38,7 @@ namespace LicApiTests.Steps
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
             var responseData = JsonConvert.DeserializeObject<List<ProductResponse>>(await response.Content.ReadAsStringAsync());
 
-            string expectedResponse = File.ReadAllText("./Resources/Products/GetProductDemo1Response.json");
+            string expectedResponse = File.ReadAllText("./Resources/Products/GetStockTestApiResponse.json");
             var expectedResponseJson = JsonConvert.DeserializeObject<List<ProductResponse>>(expectedResponse);
 
             responseData.Should().BeEquivalentTo(expectedResponseJson);

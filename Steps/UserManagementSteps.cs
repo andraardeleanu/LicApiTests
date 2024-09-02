@@ -22,7 +22,7 @@ namespace LicApiTests.Steps
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
             var responseData = JsonConvert.DeserializeObject<LoggedInResponse>(await response.Content.ReadAsStringAsync());
 
-            string expectedResponse = File.ReadAllText("./Resources/User/LoggedInAdmin.json");
+            string expectedResponse = File.ReadAllText("./Resources/User/LoggedInCustomer.json");
             var expectedResponseJson = JsonConvert.DeserializeObject<LoggedInResponse>(expectedResponse);
 
             responseData.Should().BeEquivalentTo(expectedResponseJson);

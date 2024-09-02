@@ -184,7 +184,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 22
- testRunner.When("I make a GET request to /getProducts with the Name=Stock Test Api param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getProducts with the Name=Stock Test API param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 23
  testRunner.Then("I confirm the response code from /getProducts is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

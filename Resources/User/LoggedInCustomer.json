@@ -1,0 +1,12 @@
+{
+  "id": "45953c90-29d1-48db-a173-ea8ab1009f1d",
+  "firstName": "Customer",
+  "lastName": "One",
+  "companyId": 1,
+  "companyName": "Company Demo",
+  "username": "custone",
+  "roles": [
+    "Customer"
+  ],
+  "email": "customer@licenta.com"
+}

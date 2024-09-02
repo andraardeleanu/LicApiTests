@@ -1,7 +1,37 @@
 {
-  "orderNo": "f90b6dc6-99e6-4242-96eb-273c111fe5fc",
-  "workpointName": "Demo Workpoint",
-  "companyName": "Demo Company",
-  "totalPrice": 1401.95,
-  "status": "Facturata"
+  "orderNo": "2bf92285-b09b-4e04-a5b3-3dc5c27baadb",
+  "customer": "custone",
+  "workpointName": "Workpoint Demo",
+  "companyName": "Company Demo",
+  "totalPrice": 1277.97,
+  "status": "Procesata",
+  "products": [
+    {
+      "quantity": 7,
+      "name": "Product Demo 1",
+      "price": 100,
+      "id": 0,
+      "author": "Admin",
+      "dateCreated": "2024-08-29T10:39:24.6178434Z",
+      "dateUpdated": "2024-08-29T10:39:24.6178435Z"
+    },
+    {
+      "quantity": 10,
+      "name": "Product Demo 2",
+      "price": 50,
+      "id": 0,
+      "author": "Admin",
+      "dateCreated": "2024-08-29T10:39:24.6178493Z",
+      "dateUpdated": "2024-08-29T10:39:24.6178493Z"
+    },
+    {
+      "quantity": 3,
+      "name": "Product Demo 3",
+      "price": 25.99,
+      "id": 0,
+      "author": "Admin",
+      "dateCreated": "2024-08-29T10:39:24.6178496Z",
+      "dateUpdated": "2024-08-29T10:39:24.6178497Z"
+    }
+  ]
 }

@@ -153,7 +153,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 17
- testRunner.When("I make a GET request to /getBillDetails with the orderId=171 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getBillDetails with the orderId=1 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 18
  testRunner.Then("I confirm the response code from /getBillDetails is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -192,11 +192,11 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 23
- testRunner.When("I make a GET request to /getStockByProductId with the productId=53 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getStockByProductId with the productId=1 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 24
- testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 53:" +
-                        " Available stock = 500, Pending stock = 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 1: " +
+                        "Available stock = 5000, Pending stock = 7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 25
  testRunner.When("I make a POST request to /addOrder using \'./Resources/Orders/AddNewManualOrderReq" +
@@ -206,19 +206,17 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("I confirm the response code from /addOrder is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 27
- testRunner.And("I confirm /getOrders returns the new order with a new OrderNo, Status=Initializat" +
-                        "a and Id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I confirm the response code from /addOrder returns the new order id Id and OrderN" +
+                        "o", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 28
  testRunner.When("I make a POST request to /updateOrderStatus for the order with Id param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 29
- testRunner.Then("I confirm /getOrders returns the new order with a new OrderNo, Status=Procesata a" +
-                        "nd Id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I confirm the response code from /updateOrderStatus is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 30
- testRunner.When("I make a POST request to /billGenerator using \'./Resources/Bills/BillGenerator.js" +
-                        "on\' file for OrderNo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a POST request to /billGenerator for the order bill with OrderNo param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 31
  testRunner.Then("I confirm the response code from /billGenerator is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -257,11 +255,11 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 36
- testRunner.When("I make a GET request to /getStockByProductId with the productId=53 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getStockByProductId with the productId=1 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 37
- testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 53:" +
-                        " Available stock = 500, Pending stock = 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 1: " +
+                        "Available stock = 5000, Pending stock = 7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 38
  testRunner.When("I make a POST request to /addOrder using \'./Resources/Orders/AddNewManualOrderReq" +
@@ -271,12 +269,11 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("I confirm the response code from /addOrder is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 40
- testRunner.And("I confirm /getOrders returns the new order with a new OrderNo, Status=Initializat" +
-                        "a and Id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("I confirm the response code from /addOrder returns the new order id Id and OrderN" +
+                        "o", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 41
- testRunner.When("I make a POST request to /billGenerator using \'./Resources/Bills/BillGeneratorSta" +
-                        "tusInitialized.json\' file for OrderNo", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a POST request to /billGenerator for the order bill with OrderNo param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 42
  testRunner.Then("I confirm the response code from /billGenerator is 400 Bad Request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");

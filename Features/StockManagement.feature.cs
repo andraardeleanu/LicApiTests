@@ -124,7 +124,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 12
- testRunner.When("I make a GET request to /getStocks with the Name=Stock Test Api param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getStocks with the Name=Stock Test API param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 13
  testRunner.Then("I confirm the response code from /getStocks is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -157,7 +157,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 18
- testRunner.When("I make a GET request to /getStockById with the id=34 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getStockById with the id=5 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 19
  testRunner.Then("I confirm the response code from /getStockById is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -189,7 +189,7 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 24
- testRunner.When("I make a GET request to /getStockByProductId with the productId=61 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getStockByProductId with the productId=5 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 25
  testRunner.Then("I confirm the response code from /getStockByProductId is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
@@ -223,11 +223,11 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 30
- testRunner.When("I make a GET request to /getStockByProductId with the productId=53 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getStockByProductId with the productId=1 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 31
- testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 53:" +
-                        " Available stock = 500, Pending stock = 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 1: " +
+                        "Available stock = 5000, Pending stock = 7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 32
  testRunner.When("I make a POST request to /updateStock using \'./Resources/Stock/UpdateStock.json\' " +
@@ -237,11 +237,11 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("I confirm the response code from /updateStock is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 34
- testRunner.When("I make a GET request to /getStockByProductId with the productId=53 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getStockByProductId with the productId=1 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 35
- testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 53:" +
-                        " Available stock = 1000, Pending stock = 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 1: " +
+                        "Available stock = 1000, Pending stock = 7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -267,11 +267,11 @@ this.ScenarioInitialize(scenarioInfo);
             {
                 this.ScenarioStart();
 #line 39
- testRunner.When("I make a GET request to /getStockByProductId with the productId=53 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getStockByProductId with the productId=1 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 40
- testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 53:" +
-                        " Available stock = 500, Pending stock = 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 1: " +
+                        "Available stock = 5000, Pending stock = 7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 41
  testRunner.When("I make a POST request to /updateStock using \'./Resources/Stock/UpdateStock.json\' " +
@@ -281,11 +281,11 @@ this.ScenarioInitialize(scenarioInfo);
  testRunner.Then("I confirm the response code from /updateStock is 403 Forbidden", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
 #line 43
- testRunner.When("I make a GET request to /getStockByProductId with the productId=53 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+ testRunner.When("I make a GET request to /getStockByProductId with the productId=1 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 44
- testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 53:" +
-                        " Available stock = 500, Pending stock = 0", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+ testRunner.Then("I confirm /getStockByProductId returns the correct stock data for productId - 1: " +
+                        "Available stock = 5000, Pending stock = 7", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();

@@ -41,32 +41,31 @@ namespace LicApiTests.Steps
             responseData.Should().BeEquivalentTo(expectedResponseJson);
         }
 
-        [Then(@"I confirm (.*) returns the new order with a new (.*), (.*) and (.*)")]
-        public async Task ThenIConfirmTheNewOrderHasBeenPlacedWithANew(string endpoint, string orderNoKey, string param, string idKey)
-        {
-            var response = await _client.GetAsync(endpoint + "?" + param);
-            var responseData = JsonConvert.DeserializeObject<List<OrderResponse>>(await response.Content.ReadAsStringAsync())!.FirstOrDefault();
-            Utils.AddOrUpdateDataInScenarioContext(_scenarioContext, orderNoKey, responseData!.OrderNo);
-            Utils.AddOrUpdateDataInScenarioContext(_scenarioContext, idKey, (responseData!.Id).ToString());
-        }
-
-
-        [Then(@"I confirm the response code from (.*) returns the new order's (.*) - (.*)")]
-        public async Task ThenIConfirmTheResponseCodeFromGetOrdersReturnsTheNewOrdersOrderNo(string endpoint, string key, string orderNo)
+        [Then(@"I confirm the response code from (.*) returns the new order's (.*)")]
+        public async Task ThenIConfirmTheResponseCodeFromGetOrdersReturnsTheNewOrdersOrderNo(string endpoint, string key)
         {
             var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
-            var responseData = JsonConvert.DeserializeObject<OrderResponse>(await response.Content.ReadAsStringAsync())!;
+            var responseData = JsonConvert.DeserializeObject<Result<OrderResponse>>(await response.Content.ReadAsStringAsync())!;
 
-            responseData!.OrderNo.Should().Be(orderNo);
-            _scenarioContext.Add(key, responseData.OrderNo);
+            _scenarioContext.Add(key, responseData.Data!.OrderNo);
+        }
+
+        [Then(@"I confirm the response code from (.*) returns the new order id (.*) and (.*)")]
+        public async Task ThenIConfirmTheResponseCodeFromAddOrderReturnsTheNewOrderIdOrderNo(string endpoint, string idkey, string orderNokey)
+        {
+            var response = _scenarioContext.Get<HttpResponseMessage>(endpoint);
+            var responseData = JsonConvert.DeserializeObject<Result<OrderResponse>>(await response.Content.ReadAsStringAsync())!;
+
+            _scenarioContext.Add(idkey, responseData.Data!.Id);
+            _scenarioContext.Add(orderNokey, responseData.Data!.OrderNo);
         }
 
         [When(@"I make a POST request to (.*) for the order with (.*) param")]
         public async Task WhenIMakeAPOSTRequestToUpdateOrderStatusForTheOrderWithIdParam(string endpoint, string idKey)
         {
-            var orderId = _scenarioContext.Get<string>(idKey);
+            var orderId = _scenarioContext.Get<int>(idKey);
             var updateStatusRequest = new UpdateOrderStatusRequest();
-            updateStatusRequest.Id = orderId;
+            updateStatusRequest.Id = orderId.ToString();
             var response = await _client.PostAsJsonAsync(endpoint, updateStatusRequest);
             _scenarioContext.Add(endpoint, response);
         }

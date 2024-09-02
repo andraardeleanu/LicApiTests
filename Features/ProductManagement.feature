@@ -19,7 +19,7 @@ Scenario: Successfully get all products
 
 @LoginAsAdmin
 Scenario: Successfully get product by Name
-	When I make a GET request to /getProducts with the Name=Stock Test Api param
+	When I make a GET request to /getProducts with the Name=Stock Test API param
 	Then I confirm the response code from /getProducts is 200 OK
 	And I can confirm Product Demo 1 data is displayed in the result from /getProducts
 

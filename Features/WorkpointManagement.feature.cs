@@ -84,7 +84,7 @@ namespace LicApiTests.Features
                     "NotLoggedIn"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cannot access /addWorkpoint or other resources without using a valid user", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 6
+#line 8
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -94,11 +94,11 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 7
+#line 9
  testRunner.When("I make a POST request to /addWorkpoint using \'./Resources/Workpoints/AddNewWorkpo" +
                         "intRequest.json\' file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 8
+#line 10
  testRunner.Then("I confirm the response code from /addWorkpoint is 401 Unauthorized", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -114,7 +114,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "LoginAsAdmin"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully get all workpoints", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 11
+#line 13
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -124,10 +124,10 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 12
+#line 14
  testRunner.When("I make a GET request to /getWorkpoints endpoint", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 13
+#line 15
  testRunner.Then("I confirm the response code from /getWorkpoints is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
@@ -143,7 +143,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "LoginAsAdmin"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully get workpoint by name", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 16
+#line 18
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -153,13 +153,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 17
- testRunner.When("I make a GET request to /getWorkpoints with the Name=Demo Workpoint param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 19
+ testRunner.When("I make a GET request to /getWorkpoints with the Name=Workpoint Demo param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 18
+#line 20
  testRunner.Then("I confirm the response code from /getWorkpoints is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 19
+#line 21
  testRunner.And("I can confirm the searched workpoint\'s data is displayed in the result from /getW" +
                         "orkpoints", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -176,7 +176,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "LoginAsAdmin"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully get workpoint by id", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 22
+#line 24
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -186,13 +186,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 23
- testRunner.When("I make a GET request to /getWorkpointById with the Id=59 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 25
+ testRunner.When("I make a GET request to /getWorkpointById with the Id=1 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 24
+#line 26
  testRunner.Then("I confirm the response code from /getWorkpointById is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 25
+#line 27
  testRunner.And("I can confirm the workpoint\'s 59 data is displayed in the result from /getWorkpoi" +
                         "ntById", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -209,7 +209,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "LoginAsAdmin"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Validation message is displayed if workpoint is not found by id", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 28
+#line 30
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -219,13 +219,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 29
+#line 31
  testRunner.When("I make a GET request to /getWorkpointById with the Id=900 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 30
+#line 32
  testRunner.Then("I confirm the response code from /getWorkpointById is 400 Bad Request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 31
+#line 33
  testRunner.And("I confirm /getWorkpointById returns response status 1 with validation message: Pu" +
                         "nctul de lucru cautat nu exista.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -242,7 +242,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "LoginAsAdmin"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully get workpoint by user id", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 34
+#line 36
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -252,14 +252,14 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 35
- testRunner.When("I make a GET request to /getWorkpointsByUserId with the UserId=549f6812-5753-4442" +
-                        "-903c-e52e696ba5c2 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 37
+ testRunner.When("I make a GET request to /getWorkpointsByUserId with the UserId=45953c90-29d1-48db" +
+                        "-a173-ea8ab1009f1d param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 36
+#line 38
  testRunner.Then("I confirm the response code from /getWorkpointsByUserId is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 37
+#line 39
  testRunner.And("I can confirm the searched user\'s workpoints are displayed in the result from /ge" +
                         "tWorkpointsByUserId", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -276,7 +276,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "LoginAsAdmin"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully get workpoint by company id", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 40
+#line 42
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -286,13 +286,13 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 41
- testRunner.When("I make a GET request to /getWorkpointsFromCompany with the companyId=2 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 43
+ testRunner.When("I make a GET request to /getWorkpointsFromCompany with the companyId=1 param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 42
+#line 44
  testRunner.Then("I confirm the response code from /getWorkpointsFromCompany is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 43
+#line 45
  testRunner.And("I can confirm the searched company\'s workpoints are displayed in the result from " +
                         "/getWorkpointsFromCompany", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -311,7 +311,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "WorkpointCleanUp"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully add a new workpoint", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 46
+#line 48
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -321,17 +321,17 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 47
+#line 49
  testRunner.When("I make a POST request to /addWorkpoint using \'./Resources/Workpoints/AddNewWorkpo" +
                         "intRequest.json\' file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 48
+#line 50
  testRunner.Then("I confirm the response code from /addWorkpoint is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 49
+#line 51
  testRunner.When("I make a GET request to /getWorkpoints with the Name=Workpoint API Test param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 50
+#line 52
  testRunner.Then("I confirm the response code from /getWorkpoints returns the new workpoint\'s Name " +
                         "- Workpoint API Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -348,7 +348,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "LoginAsAdmin"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cannot add a new workpoint with an existing name and address", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 53
+#line 55
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -358,14 +358,14 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 54
+#line 56
  testRunner.When("I make a POST request to /addWorkpoint using \'./Resources/Workpoints/AddNewWorkpo" +
                         "intExistingData.json\' file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 55
+#line 57
  testRunner.Then("I confirm the response code from /addWorkpoint is 400 Bad Request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 56
+#line 58
  testRunner.And("I confirm /addWorkpoint returns response status 1 with validation message: Exista" +
                         " deja un punct de lucru cu acest nume si adresa.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -382,7 +382,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "LoginAsAdmin"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("All fields are mandatory for adding a new workpoint - name", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 59
+#line 61
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -392,14 +392,14 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 60
+#line 62
  testRunner.When("I make a POST request to /addWorkpoint using \'./Resources/Workpoints/WorkpointMis" +
                         "singName.json\' file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 61
+#line 63
  testRunner.Then("I confirm the response code from /addWorkpoint is 400 Bad Request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 62
+#line 64
  testRunner.And("I confirm /addWorkpoint returns response status 1 with validation message: Toate " +
                         "campurile sunt obligatorii.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -416,7 +416,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "LoginAsAdmin"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("All fields are mandatory for adding a new workpoint - address", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 65
+#line 67
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -426,14 +426,14 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 66
+#line 68
  testRunner.When("I make a POST request to /addWorkpoint using \'./Resources/Workpoints/WorkpointMis" +
                         "singAddress.json\' file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 67
+#line 69
  testRunner.Then("I confirm the response code from /addWorkpoint is 400 Bad Request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 68
+#line 70
  testRunner.And("I confirm /addWorkpoint returns response status 1 with validation message: Toate " +
                         "campurile sunt obligatorii.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -452,7 +452,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "ResetWorkpointData"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully update workpoint\'s name", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 71
+#line 73
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -462,17 +462,17 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 72
+#line 74
  testRunner.When("I make a POST request to /updateWorkpoint using \'./Resources/Workpoints/UpdateWor" +
                         "kpointRequest.json\' file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 73
+#line 75
  testRunner.Then("I confirm the response code from /updateWorkpoint is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 74
+#line 76
  testRunner.When("I make a GET request to /getWorkpoints with the Name=Update Workpoint Test param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 75
+#line 77
  testRunner.Then("I confirm the response code from /getWorkpoints returns the new workpoint\'s Name " +
                         "- Update Workpoint Test-XYZ", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
@@ -489,7 +489,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "LoginAsAdmin"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cannot update workpoint to an already existing name and address", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 78
+#line 80
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -499,14 +499,14 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 79
+#line 81
  testRunner.When("I make a POST request to /updateWorkpoint using \'./Resources/Workpoints/UpdateWor" +
                         "kpointExistingData.json\' file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 80
+#line 82
  testRunner.Then("I confirm the response code from /updateWorkpoint is 400 Bad Request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 81
+#line 83
  testRunner.And("I confirm /updateWorkpoint returns response status 1 with validation message: Exi" +
                         "sta deja un punct de lucru cu acest nume si adresa.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -523,7 +523,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "LoginAsAdmin"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Successfully remove workpoint", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 84
+#line 86
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -533,27 +533,27 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 85
+#line 87
  testRunner.When("I make a POST request to /addWorkpoint using \'./Resources/Workpoints/AddNewWorkpo" +
                         "intRequest.json\' file", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 86
+#line 88
  testRunner.Then("I confirm the response code from /addWorkpoint is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 87
+#line 89
  testRunner.When("I make a GET request to /getWorkpoints with the Name=Workpoint API Test param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 88
+#line 90
  testRunner.Then("I confirm the response code from /getWorkpoints returns the newly added workpoint" +
                         "\'s Id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 89
+#line 91
  testRunner.When("I make a DELETE request to /removeWorkpoint with the Id param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 90
+#line 92
  testRunner.Then("I confirm the response code from /removeWorkpoint is 200 OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 91
+#line 93
  testRunner.And("I confirm /getWorkpoints doesn\'t return the recently added workpoint - Workpoint " +
                         "API Test", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
@@ -570,7 +570,7 @@ this.ScenarioInitialize(scenarioInfo);
                     "LoginAsAdmin"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Cannot remove workpoints that have orders assigned to them", null, tagsOfScenario, argumentsOfScenario, featureTags);
-#line 94
+#line 96
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
             if ((TagHelper.ContainsIgnoreTag(tagsOfScenario) || TagHelper.ContainsIgnoreTag(featureTags)))
@@ -580,20 +580,20 @@ this.ScenarioInitialize(scenarioInfo);
             else
             {
                 this.ScenarioStart();
-#line 95
- testRunner.When("I make a GET request to /getWorkpoints with the Name=Demo Workpoint param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line 97
+ testRunner.When("I make a GET request to /getWorkpoints with the Name=Workpoint Demo param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 96
+#line 98
  testRunner.Then("I confirm the response code from /getWorkpoints returns the newly added workpoint" +
                         "\'s Id", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 97
+#line 99
  testRunner.When("I make a DELETE request to /removeWorkpoint with the Id param", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 98
+#line 100
  testRunner.Then("I confirm the response code from /removeWorkpoint is 400 Bad Request", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 99
+#line 101
  testRunner.And("I confirm /removeWorkpoint returns response status 1 with validation message: Nu " +
                         "se pot sterge punctele de lucru pe care exista comenzi.", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
